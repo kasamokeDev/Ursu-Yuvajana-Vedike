@@ -1,13 +1,18 @@
 import Head from 'next/head';
+import Header from '../components/header/Header';
+import HeroCarousel from '../components/hero-carousel/HeroCarousel';
+import TopNav from '../components/top-nav/TopNav';
 
-export default function Home() {
+function getServerSideProps() {}
+export default function Home(props) {
   return (
     <>
       <Head>
         <title>Ursu Yuvajana Vedike</title>
-        <meta property="og:title" content="Urus title" key="title" />
       </Head>
-      <p>Nice</p>
+      <Header />
+      <TopNav />
+      <HeroCarousel />
     </>
   );
 }

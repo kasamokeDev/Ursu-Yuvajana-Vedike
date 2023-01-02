@@ -1,0 +1,25 @@
+.headerImageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.headerTextContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.headerText {
+  color: rgb(69, 69, 181);
+  font-family: arial, sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+  .headerText {
+    color: rgb(69, 69, 181);
+    font-family: arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
