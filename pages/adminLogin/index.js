@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Header from '../../components/header/Header';
+import TopNav from '../../components/top-nav/TopNav';
 
 export default function AdminLogin() {
   return (
@@ -9,6 +10,7 @@ export default function AdminLogin() {
         <meta property="og:title" content="Urus title" key="title" />
       </Head>
       <Header />
+      <TopNav />
     </>
   );
 }

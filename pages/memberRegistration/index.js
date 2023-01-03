@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Header from '../../components/header/Header';
 import RegistrationForm from '../../components/member-registration/RegistrationForm';
+import TopNav from '../../components/top-nav/TopNav';
 
 export default function MemberRegistration() {
   return (
@@ -10,6 +11,7 @@ export default function MemberRegistration() {
         <meta property="og:title" content="Urus title" key="title" />
       </Head>
       <Header />
+      <TopNav />
       <RegistrationForm />
     </>
   );
