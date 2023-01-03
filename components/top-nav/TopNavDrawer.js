@@ -57,16 +57,16 @@ function TopNavDrawer() {
             <Divider />
             <ListItem>
               <ListItemText>
-                <Link href="/adminLogin" className={classes.link}>
-                  Admin Login
+                <Link href="/memberRegistration" className={classes.link}>
+                  Member Registration
                 </Link>
               </ListItemText>
             </ListItem>
             <Divider />
             <ListItem>
               <ListItemText>
-                <Link href="/" className={classes.link}>
-                  contact
+                <Link href="/adminLogin" className={classes.link}>
+                  Admin Login
                 </Link>
               </ListItemText>
             </ListItem>

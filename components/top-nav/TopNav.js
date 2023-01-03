@@ -12,7 +12,12 @@ import Link from 'next/link';
 import TopNavDrawer from './TopNavDrawer';
 
 const useStyles = makeStyles((theme) => ({
-  navlinks: { marginLeft: '10px', display: 'flex', width: '100%', justifyContent: 'space-evenly'},
+  navlinks: {
+    marginLeft: '10px',
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'space-evenly',
+  },
   logo: { flexGrow: '1', cursor: 'pointer' },
   link: {
     textDecoration: 'none',
@@ -41,8 +46,8 @@ function TopNav() {
             <Link href="/about" className={classes.link}>
               About
             </Link>
-            <Link href="/contact" className={classes.link}>
-              Contact
+            <Link href="/memberRegistration" className={classes.link}>
+              Member Registration
             </Link>
             <Link href="/adminLogin" className={classes.link}>
               Admin Login

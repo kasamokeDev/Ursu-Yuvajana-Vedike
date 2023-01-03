@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Image from 'next/image';
+import Header from '../../components/header/Header';
 
 export default function AdminLogin() {
   return (
@@ -8,7 +8,7 @@ export default function AdminLogin() {
         <title>Ursu Yuvajana Vedike | Admin Login</title>
         <meta property="og:title" content="Urus title" key="title" />
       </Head>
-      adminLogin
+      <Header />
     </>
   );
 }
