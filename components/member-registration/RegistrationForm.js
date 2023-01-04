@@ -66,7 +66,7 @@ function RegistrationForm() {
             ></TextField>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <TextField label="Date Of birth"></TextField>
+            <TextField type='date' {...register('dob')}></TextField>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
