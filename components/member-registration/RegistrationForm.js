@@ -1,6 +1,17 @@
 import React from 'react';
-import { Container, Grid, TextField, Typography, Button } from '@mui/material';
+import {
+  Container,
+  Grid,
+  TextField,
+  Typography,
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+} from '@mui/material';
 import { useForm } from 'react-hook-form';
+import data from '../../staticData/data';
 // import { yupResolver } from '@hookform/resolvers/yup';
 // import { schema } from '../Schema/UserSchema';
 
@@ -15,7 +26,6 @@ function RegistrationForm() {
   });
   const submitForm = (data) => {
     console.log(data);
-    dispatch(addUser(data));
     reset();
   };
   return (
@@ -48,35 +58,59 @@ function RegistrationForm() {
             <TextField
               label="First Name"
               type="text"
-              {...register('firstName')}
+              {...register('name.firstName')}
             ></TextField>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="Middle Name"
               type="text"
-              {...register('middleName')}
+              {...register('name.middleName')}
             ></TextField>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="Last Name"
               type="text"
-              {...register('lastName')}
+              {...register('name.lastName')}
             ></TextField>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <TextField type='date' {...register('dob')}></TextField>
+            <TextField type="date" {...register('dob')}></TextField>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <TextField
-              label="Blood Group"
-              type="text"
-              {...register('bloodGroup')}
-            ></TextField>
+            <FormControl fullWidth>
+              <InputLabel id="blood-group-select-label">Blood Group</InputLabel>
+              <Select
+                labelId="blood-group-select-label"
+                id="blood-group-select"
+                label="Blood Group"
+                {...register('bloodGroup')}
+              >
+                {data.bloodGroups.map((bg) => (
+                  <MenuItem value={bg} key={bg}>
+                    {bg}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <TextField label="Gender"></TextField>
+            <FormControl fullWidth>
+              <InputLabel id="Gender-select-label">Gender</InputLabel>
+              <Select
+                labelId="gender-select-label"
+                id="gender-select"
+                label="Gender"
+                {...register('gender')}
+              >
+                {data.genders.map((gender) => (
+                  <MenuItem value={gender} key={gender}>
+                    {gender}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -112,11 +146,23 @@ function RegistrationForm() {
             ></TextField>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <TextField
-              label="Marital Status"
-              type="text"
-              {...register('maritalStatus')}
-            ></TextField>
+            <FormControl fullWidth>
+              <InputLabel id="marital-status-select-label">
+                Marital Status
+              </InputLabel>
+              <Select
+                labelId="marital-status-select-label"
+                id="marital-status-select"
+                label="Marital Status"
+                {...register('maritalStatus')}
+              >
+                {data.maritalStatus.map((ms) => (
+                  <MenuItem value={ms} key={ms}>
+                    {ms}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -204,11 +250,21 @@ function RegistrationForm() {
             ></TextField>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <TextField
-              label="State"
-              type="text"
-              {...register('address.state')}
-            ></TextField>
+            <FormControl fullWidth>
+              <InputLabel id="address-state-select-label">State</InputLabel>
+              <Select
+                labelId="address-state-select-label"
+                id="address-state-select"
+                label="State"
+                {...register('address.state')}
+              >
+                {data.states.map((state) => (
+                  <MenuItem value={state} key={state}>
+                    {state}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -266,7 +322,7 @@ function RegistrationForm() {
                 fontFamily: 'arial, sans-serif',
               }}
             >
-              Register User
+              Register
             </Button>
           </Grid>
         </Grid>
