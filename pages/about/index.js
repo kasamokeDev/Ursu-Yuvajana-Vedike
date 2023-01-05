@@ -10,7 +10,7 @@ export default function About(props) {
       </Head>
       <Header />
       <TopNav />
-      <p>hello about</p>
+      <p>hello about.</p>
     </>
   );
 }
