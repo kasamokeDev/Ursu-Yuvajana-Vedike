@@ -15,6 +15,7 @@ const Styles = (theme) => ({
   navlinks: {
     marginLeft: '10px',
     display: 'flex',
+    flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-evenly',
   },

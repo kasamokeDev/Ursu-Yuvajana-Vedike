@@ -5,11 +5,13 @@ import {
   CssBaseline,
   Typography,
   useMediaQuery,
+  Link,
+  Box,
 } from '@mui/material';
+import TopNavDrawer from './TopNavDrawer';
+
 import { useTheme } from '@mui/material/styles';
 import Styles from './style';
-import Link from 'next/link';
-import TopNavDrawer from './TopNavDrawer';
 
 function TopNav() {
   const theme = useTheme();
@@ -22,20 +24,20 @@ function TopNav() {
         {isMobile ? (
           <TopNavDrawer />
         ) : (
-          <div style={style.navlinks}>
-            <Link href="/" style={style.link}>
+          <Box sx={style.navlinks}>
+            <Link href="/" sx={style.link}  underline="hover">
               Home
             </Link>
-            <Link href="/about" style={style.link}>
+            <Link href="/about" sx={style.link}  underline="hover">
               About
             </Link>
-            <Link href="/memberRegistration" style={style.link}>
+            <Link href="/memberRegistration" sx={style.link}  underline="hover">
               Member Registration
             </Link>
-            <Link href="/adminLogin" style={style.link}>
+            <Link href="/adminLogin" sx={style.link}  underline="hover">
               Admin Login
             </Link>
-          </div>
+          </Box>
         )}
       </Toolbar>
     </AppBar>

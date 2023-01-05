@@ -8,8 +8,8 @@ import {
   Divider,
   Toolbar,
   Typography,
+  Link,
 } from '@mui/material';
-import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -19,6 +19,7 @@ import Styles from './style';
 function TopNavDrawer() {
   const [openDrawer, setOpenDrawer] = useState(false);
   const theme = useTheme();
+  const style = Styles(theme);
 
   return (
     <>
@@ -36,7 +37,7 @@ function TopNavDrawer() {
             <Divider />
             <ListItem onClick={() => setOpenDrawer(false)}>
               <ListItemText>
-                <Link href="/" style={Styles(theme).link}>
+                <Link href="/" sx={style.link}  underline="hover">
                   Home
                 </Link>
               </ListItemText>
@@ -44,7 +45,7 @@ function TopNavDrawer() {
             <Divider />
             <ListItem>
               <ListItemText>
-                <Link href="/about" style={Styles(theme).link}>
+                <Link href="/about" sx={style.link}  underline="hover">
                   About
                 </Link>
               </ListItemText>
@@ -52,7 +53,7 @@ function TopNavDrawer() {
             <Divider />
             <ListItem>
               <ListItemText>
-                <Link href="/memberRegistration" style={Styles(theme).link}>
+                <Link href="/memberRegistration" sx={style.link}  underline="hover">
                   Member Registration
                 </Link>
               </ListItemText>
@@ -60,7 +61,7 @@ function TopNavDrawer() {
             <Divider />
             <ListItem>
               <ListItemText>
-                <Link href="/adminLogin" style={Styles(theme).link}>
+                <Link href="/adminLogin" sx={style.link}  underline="hover">
                   Admin Login
                 </Link>
               </ListItemText>
@@ -69,10 +70,7 @@ function TopNavDrawer() {
           </List>
         </box>
       </Drawer>
-      <IconButton
-        style={Styles(theme).icon}
-        onClick={() => setOpenDrawer(!openDrawer)}
-      >
+      <IconButton sx={style.icon} onClick={() => setOpenDrawer(!openDrawer)}>
         <MenuIcon />
       </IconButton>
     </>

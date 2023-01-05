@@ -59,7 +59,7 @@ function RegistrationForm() {
         <Grid
           container
           spacing={2}
-          style={style.formContainer}
+          sx={style.formContainer}
         >
           <Grid xs={12} item>
             <Typography
@@ -100,17 +100,17 @@ function RegistrationForm() {
             ></TextField>
             <Error errorMessage={errors.name?.lastName?.message} />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
             <TextField
               type="date"
               {...register('dob')}
-              style={{ width: '82% ' }}
               error={errors.dob}
+              sx={{ width: {xs: '100%', sm: '82%'} }}
             ></TextField>
             <Error errorMessage={errors.dob?.message} />
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <FormControl fullWidth style={{ width: '82%' }}>
+          <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
+            <FormControl fullWidth sx={{ width:  {xs: '100%', sm: '82%'}}}>
               <InputLabel id="blood-group-select-label">Blood Group</InputLabel>
               <Select
                 labelId="blood-group-select-label"
@@ -128,8 +128,8 @@ function RegistrationForm() {
             </FormControl>
             <Error errorMessage={errors.bloodGroup?.message} />
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <FormControl fullWidth style={{ width: '82%' }}>
+          <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
+            <FormControl fullWidth sx={{ width:  {xs: '100%', sm: '82%'} }}>
               <InputLabel id="Gender-select-label">Gender</InputLabel>
               <Select
                 labelId="gender-select-label"
@@ -186,8 +186,8 @@ function RegistrationForm() {
             ></TextField>
             <Error errorMessage={errors.fatherName?.message} />
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <FormControl fullWidth style={{ width: '82%' }}>
+          <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
+            <FormControl fullWidth sx={{ width:  {xs: '100%', sm: '82%'} }}>
               <InputLabel id="marital-status-select-label">
                 Marital Status
               </InputLabel>
@@ -305,8 +305,8 @@ function RegistrationForm() {
             ></TextField>
             <Error errorMessage={errors.address?.city?.message} />
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <FormControl fullWidth style={{ width: '82%' }}>
+          <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
+            <FormControl fullWidth sx={{ width: {xs: '100%', sm: '82%'} }}>
               <InputLabel id="address-state-select-label">State</InputLabel>
               <Select
                 labelId="address-state-select-label"
