@@ -15,9 +15,6 @@ function TopNav() {
   const theme = useTheme();
   const style = Styles(theme);
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  React.useEffect(() => {
-    console.log(theme.breakpoints.down('sm'));
-  }, []);
   return (
     <AppBar position="static">
       <CssBaseline />
