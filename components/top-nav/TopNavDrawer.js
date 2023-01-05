@@ -9,21 +9,16 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
-const useStyles = makeStyles(() => ({
-  link: { textDecoration: 'none', color: 'blue', fontSize: '20px' },
-  icon: { color: 'white' },
-  logo: { flexGrow: '1', cursor: 'pointer' },
-  draw: { background: 'red' },
-}));
+import { useTheme } from '@mui/material/styles';
+import Styles from './style';
 
 function TopNavDrawer() {
-  const classes = useStyles();
   const [openDrawer, setOpenDrawer] = useState(false);
+  const theme = useTheme();
 
   return (
     <>
@@ -34,14 +29,14 @@ function TopNavDrawer() {
         onClose={() => setOpenDrawer(false)}
       >
         <Toolbar sx={{ backgroundColor: 'primary.main' }}>
-          <CloseIcon onClick={() => setOpenDrawer(false)}/>
+          <CloseIcon onClick={() => setOpenDrawer(false)} />
         </Toolbar>
         <box sx={{ backgroundColor: 'primary.main' }} height="100vh">
           <List height="100vh">
             <Divider />
             <ListItem onClick={() => setOpenDrawer(false)}>
               <ListItemText>
-                <Link href="/" className={classes.link}>
+                <Link href="/" style={Styles(theme).link}>
                   Home
                 </Link>
               </ListItemText>
@@ -49,7 +44,7 @@ function TopNavDrawer() {
             <Divider />
             <ListItem>
               <ListItemText>
-                <Link href="/about" className={classes.link}>
+                <Link href="/about" style={Styles(theme).link}>
                   About
                 </Link>
               </ListItemText>
@@ -57,7 +52,7 @@ function TopNavDrawer() {
             <Divider />
             <ListItem>
               <ListItemText>
-                <Link href="/memberRegistration" className={classes.link}>
+                <Link href="/memberRegistration" style={Styles(theme).link}>
                   Member Registration
                 </Link>
               </ListItemText>
@@ -65,7 +60,7 @@ function TopNavDrawer() {
             <Divider />
             <ListItem>
               <ListItemText>
-                <Link href="/adminLogin" className={classes.link}>
+                <Link href="/adminLogin" style={Styles(theme).link}>
                   Admin Login
                 </Link>
               </ListItemText>
@@ -75,7 +70,7 @@ function TopNavDrawer() {
         </box>
       </Drawer>
       <IconButton
-        className={classes.icon}
+        style={Styles(theme).icon}
         onClick={() => setOpenDrawer(!openDrawer)}
       >
         <MenuIcon />

@@ -4,34 +4,20 @@ import {
   Toolbar,
   CssBaseline,
   Typography,
-  useTheme,
   useMediaQuery,
 } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import { useTheme } from '@mui/material/styles';
+import Styles from './style';
 import Link from 'next/link';
 import TopNavDrawer from './TopNavDrawer';
 
-const useStyles = makeStyles((theme) => ({
-  navlinks: {
-    marginLeft: '10px',
-    display: 'flex',
-    width: '100%',
-    justifyContent: 'space-evenly',
-  },
-  logo: { flexGrow: '1', cursor: 'pointer' },
-  link: {
-    textDecoration: 'none',
-    color: 'white',
-    fontSize: '20px',
-    marginLeft: '2px',
-    '&:hover': { color: 'yellow', borderBottom: '1px solid yellow' },
-  },
-}));
-
 function TopNav() {
-  const classes = useStyles();
   const theme = useTheme();
+  const style = Styles(theme);
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  React.useEffect(() => {
+    console.log(theme.breakpoints.down('sm'));
+  }, []);
   return (
     <AppBar position="static">
       <CssBaseline />
@@ -39,17 +25,17 @@ function TopNav() {
         {isMobile ? (
           <TopNavDrawer />
         ) : (
-          <div className={classes.navlinks}>
-            <Link href="/" className={classes.link}>
+          <div style={style.navlinks}>
+            <Link href="/" style={style.link}>
               Home
             </Link>
-            <Link href="/about" className={classes.link}>
+            <Link href="/about" style={style.link}>
               About
             </Link>
-            <Link href="/memberRegistration" className={classes.link}>
+            <Link href="/memberRegistration" style={style.link}>
               Member Registration
             </Link>
-            <Link href="/adminLogin" className={classes.link}>
+            <Link href="/adminLogin" style={style.link}>
               Admin Login
             </Link>
           </div>

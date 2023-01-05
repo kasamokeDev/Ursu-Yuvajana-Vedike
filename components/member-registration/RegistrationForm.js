@@ -12,8 +12,8 @@ import {
 } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import data from '../../staticData/data';
-// import { yupResolver } from '@hookform/resolvers/yup';
-// import { schema } from '../Schema/UserSchema';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { schema } from '../../Schema/UserSchema';
 
 function RegistrationForm() {
   const {
@@ -76,10 +76,14 @@ function RegistrationForm() {
             ></TextField>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <TextField type="date" {...register('dob')}></TextField>
+            <TextField
+              type="date"
+              {...register('dob')}
+              style={{ width: '82% ' }}
+            ></TextField>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <FormControl fullWidth>
+            <FormControl fullWidth style={{ width: '82%' }}>
               <InputLabel id="blood-group-select-label">Blood Group</InputLabel>
               <Select
                 labelId="blood-group-select-label"
@@ -96,7 +100,7 @@ function RegistrationForm() {
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <FormControl fullWidth>
+            <FormControl fullWidth style={{ width: '82%' }}>
               <InputLabel id="Gender-select-label">Gender</InputLabel>
               <Select
                 labelId="gender-select-label"
@@ -146,7 +150,7 @@ function RegistrationForm() {
             ></TextField>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <FormControl fullWidth>
+            <FormControl fullWidth style={{ width: '82%' }}>
               <InputLabel id="marital-status-select-label">
                 Marital Status
               </InputLabel>
@@ -250,7 +254,7 @@ function RegistrationForm() {
             ></TextField>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <FormControl fullWidth>
+            <FormControl fullWidth style={{ width: '82%' }}>
               <InputLabel id="address-state-select-label">State</InputLabel>
               <Select
                 labelId="address-state-select-label"
