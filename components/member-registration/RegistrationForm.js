@@ -10,6 +10,7 @@ import {
   MenuItem,
   Select,
 } from '@mui/material';
+import Error from '../formError/Error';
 import { useForm } from 'react-hook-form';
 import data from '../../staticData/data';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -23,6 +24,7 @@ function RegistrationForm() {
     reset,
   } = useForm({
     mode: 'onChange',
+    resolver: yupResolver(schema),
   });
   const submitForm = (data) => {
     console.log(data);
@@ -59,28 +61,36 @@ function RegistrationForm() {
               label="First Name"
               type="text"
               {...register('name.firstName')}
+              error={errors.name?.firstName}
             ></TextField>
+            <Error errorMessage={errors.name?.firstName?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="Middle Name"
               type="text"
               {...register('name.middleName')}
+              error={errors.name?.middleName}
             ></TextField>
+            <Error errorMessage={errors.name?.middleName?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="Last Name"
               type="text"
               {...register('name.lastName')}
+              error={errors.name?.lastName}
             ></TextField>
+            <Error errorMessage={errors.name?.lastName?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               type="date"
               {...register('dob')}
               style={{ width: '82% ' }}
+              error={errors.dob}
             ></TextField>
+            <Error errorMessage={errors.dob?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl fullWidth style={{ width: '82%' }}>
@@ -90,6 +100,7 @@ function RegistrationForm() {
                 id="blood-group-select"
                 label="Blood Group"
                 {...register('bloodGroup')}
+                error={errors.bloodGroup}
               >
                 {data.bloodGroups.map((bg) => (
                   <MenuItem value={bg} key={bg}>
@@ -98,6 +109,7 @@ function RegistrationForm() {
                 ))}
               </Select>
             </FormControl>
+            <Error errorMessage={errors.bloodGroup?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl fullWidth style={{ width: '82%' }}>
@@ -107,6 +119,7 @@ function RegistrationForm() {
                 id="gender-select"
                 label="Gender"
                 {...register('gender')}
+                error={errors.gender}
               >
                 {data.genders.map((gender) => (
                   <MenuItem value={gender} key={gender}>
@@ -115,20 +128,25 @@ function RegistrationForm() {
                 ))}
               </Select>
             </FormControl>
+            <Error errorMessage={errors.gender?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="Aadhar Number"
               type="number"
               {...register('aadharNumber')}
+              error={errors.aadharNumber}
             ></TextField>
+            <Error errorMessage={errors.aadharNumber?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="PAN"
               type="text"
               {...register('panNumber')}
+              error={errors.panNumber}
             ></TextField>
+            <Error errorMessage={errors.panNumber?.message}/>
           </Grid>
           <Grid xs={12} item>
             <Typography
@@ -147,7 +165,9 @@ function RegistrationForm() {
               label="Father's Name"
               type="text"
               {...register('fatherName')}
+              error={errors.fatherName}
             ></TextField>
+            <Error errorMessage={errors.fatherName?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl fullWidth style={{ width: '82%' }}>
@@ -159,6 +179,7 @@ function RegistrationForm() {
                 id="marital-status-select"
                 label="Marital Status"
                 {...register('maritalStatus')}
+                error={errors.maritalStatus}
               >
                 {data.maritalStatus.map((ms) => (
                   <MenuItem value={ms} key={ms}>
@@ -167,12 +188,14 @@ function RegistrationForm() {
                 ))}
               </Select>
             </FormControl>
+            <Error errorMessage={errors.maritalStatus?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="Spouse Name(If Applicable)"
               type="text"
               {...register('spouseName')}
+              error={errors.spouseName}
             ></TextField>
           </Grid>
           <Grid xs={12} item>
@@ -192,14 +215,18 @@ function RegistrationForm() {
               label="Highest Qualification"
               type="text"
               {...register('qualification')}
+              error={errors.qualification}
             ></TextField>
+            <Error errorMessage={errors.qualification?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="School/University Name"
               type="text"
               {...register('academicInstitution')}
+              error={errors.academicInstitution}
             ></TextField>
+            <Error errorMessage={errors.academicInstitution?.message}/>
           </Grid>
           <Grid xs={12} item>
             <Typography
@@ -218,14 +245,18 @@ function RegistrationForm() {
               label="Occupation"
               type="text"
               {...register('occupation')}
+              error={errors.occupation}
             ></TextField>
+            <Error errorMessage={errors.occupation?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="Company Name"
               type="text"
               {...register('companyName')}
+              error={errors.companyName}
             ></TextField>
+            <Error errorMessage={errors.companyName?.message}/>
           </Grid>
           <Grid xs={12} item>
             <Typography
@@ -244,14 +275,18 @@ function RegistrationForm() {
               label="Full Address"
               type="text"
               {...register('address.addressLine1')}
+              error={errors.address?.addressLine1}
             ></TextField>
+            <Error errorMessage={errors.address?.addressLine1?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="City"
               type="text"
               {...register('address.city')}
+              error={errors.address?.city}
             ></TextField>
+            <Error errorMessage={errors.address?.city?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl fullWidth style={{ width: '82%' }}>
@@ -261,6 +296,7 @@ function RegistrationForm() {
                 id="address-state-select"
                 label="State"
                 {...register('address.state')}
+                error={errors.address?.state}
               >
                 {data.states.map((state) => (
                   <MenuItem value={state} key={state}>
@@ -269,13 +305,16 @@ function RegistrationForm() {
                 ))}
               </Select>
             </FormControl>
+            <Error errorMessage={errors.address?.state?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="Pin Code"
               type="text"
               {...register('address.pincode')}
+              error={errors.address?.pincode}
             ></TextField>
+            <Error errorMessage={errors.address?.pincode?.message}/>
           </Grid>
           <Grid xs={12} item>
             <Typography
@@ -294,21 +333,27 @@ function RegistrationForm() {
               label="Phone Number"
               type="text"
               {...register('phoneNumber')}
+              error={errors.phoneNumber}
             ></TextField>
+            <Error errorMessage={errors.phoneNumber?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="Alternate Phone Number"
               type="text"
               {...register('altPhoneNumber')}
+              error={errors.altPhoneNumber}
             ></TextField>
+            <Error errorMessage={errors.altPhoneNumber?.message}/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="Email Id"
               type="email"
               {...register('email')}
+              error={errors.email}
             ></TextField>
+            <Error errorMessage={errors.email?.message}/>
           </Grid>
           <Grid
             xs={12}
