@@ -16,7 +16,12 @@ import data from '../../staticData/data';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from '../../Schema/UserSchema';
 
+import { useTheme } from '@mui/material/styles';
+import Styles from './style';
+
 function RegistrationForm() {
+  const theme = useTheme();
+  const style = Styles(theme);
   const {
     register,
     formState: { errors },
@@ -31,7 +36,15 @@ function RegistrationForm() {
     reset();
   };
   return (
-    <Container maxWidth="md">
+    <Container
+      maxWidth="md"
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
       <Typography
         variant="h4"
         style={{
@@ -43,7 +56,11 @@ function RegistrationForm() {
         Member Registration
       </Typography>
       <form style={{ marginTop: '1rem' }} onSubmit={handleSubmit(submitForm)}>
-        <Grid container spacing={2}>
+        <Grid
+          container
+          spacing={2}
+          style={style.formContainer}
+        >
           <Grid xs={12} item>
             <Typography
               variant="h6"
@@ -63,7 +80,7 @@ function RegistrationForm() {
               {...register('name.firstName')}
               error={errors.name?.firstName}
             ></TextField>
-            <Error errorMessage={errors.name?.firstName?.message}/>
+            <Error errorMessage={errors.name?.firstName?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -72,7 +89,7 @@ function RegistrationForm() {
               {...register('name.middleName')}
               error={errors.name?.middleName}
             ></TextField>
-            <Error errorMessage={errors.name?.middleName?.message}/>
+            <Error errorMessage={errors.name?.middleName?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -81,7 +98,7 @@ function RegistrationForm() {
               {...register('name.lastName')}
               error={errors.name?.lastName}
             ></TextField>
-            <Error errorMessage={errors.name?.lastName?.message}/>
+            <Error errorMessage={errors.name?.lastName?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -90,7 +107,7 @@ function RegistrationForm() {
               style={{ width: '82% ' }}
               error={errors.dob}
             ></TextField>
-            <Error errorMessage={errors.dob?.message}/>
+            <Error errorMessage={errors.dob?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl fullWidth style={{ width: '82%' }}>
@@ -109,7 +126,7 @@ function RegistrationForm() {
                 ))}
               </Select>
             </FormControl>
-            <Error errorMessage={errors.bloodGroup?.message}/>
+            <Error errorMessage={errors.bloodGroup?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl fullWidth style={{ width: '82%' }}>
@@ -128,7 +145,7 @@ function RegistrationForm() {
                 ))}
               </Select>
             </FormControl>
-            <Error errorMessage={errors.gender?.message}/>
+            <Error errorMessage={errors.gender?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -137,7 +154,7 @@ function RegistrationForm() {
               {...register('aadharNumber')}
               error={errors.aadharNumber}
             ></TextField>
-            <Error errorMessage={errors.aadharNumber?.message}/>
+            <Error errorMessage={errors.aadharNumber?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -146,7 +163,7 @@ function RegistrationForm() {
               {...register('panNumber')}
               error={errors.panNumber}
             ></TextField>
-            <Error errorMessage={errors.panNumber?.message}/>
+            <Error errorMessage={errors.panNumber?.message} />
           </Grid>
           <Grid xs={12} item>
             <Typography
@@ -167,7 +184,7 @@ function RegistrationForm() {
               {...register('fatherName')}
               error={errors.fatherName}
             ></TextField>
-            <Error errorMessage={errors.fatherName?.message}/>
+            <Error errorMessage={errors.fatherName?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl fullWidth style={{ width: '82%' }}>
@@ -188,7 +205,7 @@ function RegistrationForm() {
                 ))}
               </Select>
             </FormControl>
-            <Error errorMessage={errors.maritalStatus?.message}/>
+            <Error errorMessage={errors.maritalStatus?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -217,7 +234,7 @@ function RegistrationForm() {
               {...register('qualification')}
               error={errors.qualification}
             ></TextField>
-            <Error errorMessage={errors.qualification?.message}/>
+            <Error errorMessage={errors.qualification?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -226,7 +243,7 @@ function RegistrationForm() {
               {...register('academicInstitution')}
               error={errors.academicInstitution}
             ></TextField>
-            <Error errorMessage={errors.academicInstitution?.message}/>
+            <Error errorMessage={errors.academicInstitution?.message} />
           </Grid>
           <Grid xs={12} item>
             <Typography
@@ -247,7 +264,7 @@ function RegistrationForm() {
               {...register('occupation')}
               error={errors.occupation}
             ></TextField>
-            <Error errorMessage={errors.occupation?.message}/>
+            <Error errorMessage={errors.occupation?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -256,7 +273,7 @@ function RegistrationForm() {
               {...register('companyName')}
               error={errors.companyName}
             ></TextField>
-            <Error errorMessage={errors.companyName?.message}/>
+            <Error errorMessage={errors.companyName?.message} />
           </Grid>
           <Grid xs={12} item>
             <Typography
@@ -277,7 +294,7 @@ function RegistrationForm() {
               {...register('address.addressLine1')}
               error={errors.address?.addressLine1}
             ></TextField>
-            <Error errorMessage={errors.address?.addressLine1?.message}/>
+            <Error errorMessage={errors.address?.addressLine1?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -286,7 +303,7 @@ function RegistrationForm() {
               {...register('address.city')}
               error={errors.address?.city}
             ></TextField>
-            <Error errorMessage={errors.address?.city?.message}/>
+            <Error errorMessage={errors.address?.city?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl fullWidth style={{ width: '82%' }}>
@@ -305,7 +322,7 @@ function RegistrationForm() {
                 ))}
               </Select>
             </FormControl>
-            <Error errorMessage={errors.address?.state?.message}/>
+            <Error errorMessage={errors.address?.state?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -314,7 +331,7 @@ function RegistrationForm() {
               {...register('address.pincode')}
               error={errors.address?.pincode}
             ></TextField>
-            <Error errorMessage={errors.address?.pincode?.message}/>
+            <Error errorMessage={errors.address?.pincode?.message} />
           </Grid>
           <Grid xs={12} item>
             <Typography
@@ -335,7 +352,7 @@ function RegistrationForm() {
               {...register('phoneNumber')}
               error={errors.phoneNumber}
             ></TextField>
-            <Error errorMessage={errors.phoneNumber?.message}/>
+            <Error errorMessage={errors.phoneNumber?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -344,7 +361,7 @@ function RegistrationForm() {
               {...register('altPhoneNumber')}
               error={errors.altPhoneNumber}
             ></TextField>
-            <Error errorMessage={errors.altPhoneNumber?.message}/>
+            <Error errorMessage={errors.altPhoneNumber?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -353,7 +370,7 @@ function RegistrationForm() {
               {...register('email')}
               error={errors.email}
             ></TextField>
-            <Error errorMessage={errors.email?.message}/>
+            <Error errorMessage={errors.email?.message} />
           </Grid>
           <Grid
             xs={12}
