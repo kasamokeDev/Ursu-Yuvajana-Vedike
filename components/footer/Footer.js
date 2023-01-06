@@ -17,7 +17,7 @@ export default function Footer() {
             floating
             className="m-1"
             style={{ backgroundColor: '#3b5998' }}
-            href="#!"
+            href="https://www.facebook.com/"
             role="button"
           >
             <MDBIcon fab icon="facebook-f" />
@@ -27,7 +27,7 @@ export default function Footer() {
             floating
             className="m-1"
             style={{ backgroundColor: '#55acee' }}
-            href="#!"
+            href="https://www.twitter.com/"
             role="button"
           >
             <MDBIcon fab icon="twitter" />
@@ -37,13 +37,11 @@ export default function Footer() {
             floating
             className="m-1"
             style={{ backgroundColor: '#ac2bac' }}
-            href="#!"
+            href="https://www.instagram.com/"
             role="button"
           >
             <MDBIcon fab icon="instagram" />
           </MDBBtn>
-
-
         </section>
       </MDBContainer>
 
