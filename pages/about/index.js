@@ -1,6 +1,7 @@
-import Head from "next/head";
-import Header from "../../components/header/Header";
-import TopNav from "../../components/top-nav/TopNav";
+import Head from 'next/head';
+import Header from '../../components/header/Header';
+import TopNav from '../../components/top-nav/TopNav';
+import AboutContainer from '../../components/about/AboutContainer';
 function getServerSideProps() {}
 export default function About(props) {
   return (
@@ -10,7 +11,7 @@ export default function About(props) {
       </Head>
       <Header />
       <TopNav />
-      <p>hello kammo.</p>
+      <AboutContainer />
     </>
   );
 }
