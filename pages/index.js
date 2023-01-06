@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Header from '../components/header/Header';
 import HeroCarousel from '../components/hero-carousel/HeroCarousel';
+import CardContainer from '../components/card-group/CardContainer';
 import TopNav from '../components/top-nav/TopNav';
 import Footer from '../components/footer/Footer';
 
@@ -11,11 +12,19 @@ export default function Home(props) {
       <Head>
         <title>Ursu Yuvajana Vedike</title>
       </Head>
-      <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-      <Header />
-      <TopNav />
-      <HeroCarousel />
-      <Footer/>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Header />
+        <TopNav />
+        <HeroCarousel />
+        <CardContainer />
+        <Footer />
       </div>
     </>
   );
