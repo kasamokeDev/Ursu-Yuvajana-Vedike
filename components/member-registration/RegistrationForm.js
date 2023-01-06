@@ -43,6 +43,7 @@ function RegistrationForm() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        mb: 10
       }}
     >
       <Typography

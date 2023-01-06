@@ -8,6 +8,9 @@ const Styles = (theme) => ({
     [theme.breakpoints.up('sm')]: {
       color: '#FFFFFF',
     },
+    '&:hover': {
+      color: 'yellow'
+    }
   },
   icon: { color: 'white' },
   logo: { flexGrow: '1', cursor: 'pointer' },

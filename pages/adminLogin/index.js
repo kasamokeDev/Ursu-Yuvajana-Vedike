@@ -4,6 +4,8 @@ import TopNav from '../../components/top-nav/TopNav';
 
 import AdminLoginContainer from '../../components/admin-login/AdminLoginContainer';
 
+import Footer from '../../components/footer/Footer';
+
 export default function AdminLogin() {
   return (
     <>
@@ -14,6 +16,7 @@ export default function AdminLogin() {
       <Header />
       <TopNav />
       <AdminLoginContainer />
+      <Footer />
     </>
   );
 }

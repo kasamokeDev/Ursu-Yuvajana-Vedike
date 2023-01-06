@@ -1,6 +1,7 @@
 const Styles = (theme) => ({
   aboutContainer: {
     alignContent: 'center',
+    mb: 10,
   },
   aboutGridContainer: {
     justifyContent: 'space-between',
