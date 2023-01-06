@@ -78,7 +78,7 @@ function RegistrationForm() {
               label="First Name"
               type="text"
               {...register('name.firstName')}
-              error={errors.name?.firstName}
+              error={Boolean(errors.name?.firstName)}
             ></TextField>
             <Error errorMessage={errors.name?.firstName?.message} />
           </Grid>
@@ -87,7 +87,7 @@ function RegistrationForm() {
               label="Middle Name"
               type="text"
               {...register('name.middleName')}
-              error={errors.name?.middleName}
+              error={Boolean(errors.name?.middleName)}
             ></TextField>
             <Error errorMessage={errors.name?.middleName?.message} />
           </Grid>
@@ -96,7 +96,7 @@ function RegistrationForm() {
               label="Last Name"
               type="text"
               {...register('name.lastName')}
-              error={errors.name?.lastName}
+              error={Boolean(errors.name?.lastName)}
             ></TextField>
             <Error errorMessage={errors.name?.lastName?.message} />
           </Grid>
@@ -104,7 +104,7 @@ function RegistrationForm() {
             <TextField
               type="date"
               {...register('dob')}
-              error={errors.dob}
+              error={Boolean(errors.dob)}
               sx={{ width: {xs: '100%', sm: '82%'} }}
             ></TextField>
             <Error errorMessage={errors.dob?.message} />
@@ -117,7 +117,7 @@ function RegistrationForm() {
                 id="blood-group-select"
                 label="Blood Group"
                 {...register('bloodGroup')}
-                error={errors.bloodGroup}
+                error={Boolean(errors.bloodGroup)}
               >
                 {data.bloodGroups.map((bg) => (
                   <MenuItem value={bg} key={bg}>
@@ -136,7 +136,7 @@ function RegistrationForm() {
                 id="gender-select"
                 label="Gender"
                 {...register('gender')}
-                error={errors.gender}
+                error={Boolean(errors.gender)}
               >
                 {data.genders.map((gender) => (
                   <MenuItem value={gender} key={gender}>
@@ -152,7 +152,7 @@ function RegistrationForm() {
               label="Aadhar Number"
               type="number"
               {...register('aadharNumber')}
-              error={errors.aadharNumber}
+              error={Boolean(errors.aadharNumber)}
             ></TextField>
             <Error errorMessage={errors.aadharNumber?.message} />
           </Grid>
@@ -161,7 +161,7 @@ function RegistrationForm() {
               label="PAN"
               type="text"
               {...register('panNumber')}
-              error={errors.panNumber}
+              error={Boolean(errors.panNumber)}
             ></TextField>
             <Error errorMessage={errors.panNumber?.message} />
           </Grid>
@@ -182,7 +182,7 @@ function RegistrationForm() {
               label="Father's Name"
               type="text"
               {...register('fatherName')}
-              error={errors.fatherName}
+              error={Boolean(errors.fatherName)}
             ></TextField>
             <Error errorMessage={errors.fatherName?.message} />
           </Grid>
@@ -196,7 +196,7 @@ function RegistrationForm() {
                 id="marital-status-select"
                 label="Marital Status"
                 {...register('maritalStatus')}
-                error={errors.maritalStatus}
+                error={Boolean(errors.maritalStatus)}
               >
                 {data.maritalStatus.map((ms) => (
                   <MenuItem value={ms} key={ms}>
@@ -212,7 +212,7 @@ function RegistrationForm() {
               label="Spouse Name(If Applicable)"
               type="text"
               {...register('spouseName')}
-              error={errors.spouseName}
+              error={Boolean(errors.spouseName)}
             ></TextField>
           </Grid>
           <Grid xs={12} item>
@@ -232,7 +232,7 @@ function RegistrationForm() {
               label="Highest Qualification"
               type="text"
               {...register('qualification')}
-              error={errors.qualification}
+              error={Boolean(errors.qualification)}
             ></TextField>
             <Error errorMessage={errors.qualification?.message} />
           </Grid>
@@ -241,7 +241,7 @@ function RegistrationForm() {
               label="School/University Name"
               type="text"
               {...register('academicInstitution')}
-              error={errors.academicInstitution}
+              error={Boolean(errors.academicInstitution)}
             ></TextField>
             <Error errorMessage={errors.academicInstitution?.message} />
           </Grid>
@@ -262,7 +262,7 @@ function RegistrationForm() {
               label="Occupation"
               type="text"
               {...register('occupation')}
-              error={errors.occupation}
+              error={Boolean(errors.occupation)}
             ></TextField>
             <Error errorMessage={errors.occupation?.message} />
           </Grid>
@@ -271,7 +271,7 @@ function RegistrationForm() {
               label="Company Name"
               type="text"
               {...register('companyName')}
-              error={errors.companyName}
+              error={Boolean(errors.companyName)}
             ></TextField>
             <Error errorMessage={errors.companyName?.message} />
           </Grid>
@@ -292,7 +292,7 @@ function RegistrationForm() {
               label="Full Address"
               type="text"
               {...register('address.addressLine1')}
-              error={errors.address?.addressLine1}
+              error={Boolean(errors.address?.addressLine1)}
             ></TextField>
             <Error errorMessage={errors.address?.addressLine1?.message} />
           </Grid>
@@ -301,7 +301,7 @@ function RegistrationForm() {
               label="City"
               type="text"
               {...register('address.city')}
-              error={errors.address?.city}
+              error={Boolean(errors.address?.city)}
             ></TextField>
             <Error errorMessage={errors.address?.city?.message} />
           </Grid>
@@ -313,7 +313,7 @@ function RegistrationForm() {
                 id="address-state-select"
                 label="State"
                 {...register('address.state')}
-                error={errors.address?.state}
+                error={Boolean(errors.address?.state)}
               >
                 {data.states.map((state) => (
                   <MenuItem value={state} key={state}>
@@ -329,7 +329,7 @@ function RegistrationForm() {
               label="Pin Code"
               type="text"
               {...register('address.pincode')}
-              error={errors.address?.pincode}
+              error={Boolean(errors.address?.pincode)}
             ></TextField>
             <Error errorMessage={errors.address?.pincode?.message} />
           </Grid>
@@ -350,7 +350,7 @@ function RegistrationForm() {
               label="Phone Number"
               type="text"
               {...register('phoneNumber')}
-              error={errors.phoneNumber}
+              error={Boolean(errors.phoneNumber)}
             ></TextField>
             <Error errorMessage={errors.phoneNumber?.message} />
           </Grid>
@@ -359,7 +359,7 @@ function RegistrationForm() {
               label="Alternate Phone Number"
               type="text"
               {...register('altPhoneNumber')}
-              error={errors.altPhoneNumber}
+              error={Boolean(errors.altPhoneNumber)}
             ></TextField>
             <Error errorMessage={errors.altPhoneNumber?.message} />
           </Grid>
@@ -368,7 +368,7 @@ function RegistrationForm() {
               label="Email Id"
               type="email"
               {...register('email')}
-              error={errors.email}
+              error={Boolean(errors.email)}
             ></TextField>
             <Error errorMessage={errors.email?.message} />
           </Grid>

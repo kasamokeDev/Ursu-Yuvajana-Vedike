@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Header from '../../components/header/Header';
 import TopNav from '../../components/top-nav/TopNav';
 
+import AdminLoginContainer from '../../components/admin-login/AdminLoginContainer';
+
 export default function AdminLogin() {
   return (
     <>
@@ -11,6 +13,7 @@ export default function AdminLogin() {
       </Head>
       <Header />
       <TopNav />
+      <AdminLoginContainer />
     </>
   );
 }
