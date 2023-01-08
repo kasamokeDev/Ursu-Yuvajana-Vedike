@@ -17,7 +17,7 @@ function Header() {
               maxWidth: { xs: 100, md: 100 },
             }}
             alt="Ursu Yuvajana Vedike"
-            src="/assets/logo/officialLogo.png"
+            src="/assets/logo/OfficialLogo.png"
           ></Box>
         </Grid>
         <Grid item xs={8} md={8} className={style.headerTextContainer}>
