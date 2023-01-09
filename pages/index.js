@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Header from '../components/header/Header';
 import HeroCarousel from '../components/hero-carousel/HeroCarousel';
 import CardContainer from '../components/card-group/CardContainer';
 import TopNav from '../components/top-nav/TopNav';
@@ -20,7 +19,6 @@ export default function Home(props) {
           alignItems: 'center',
         }}
       >
-        <Header />
         <TopNav />
         <HeroCarousel />
         <CardContainer />

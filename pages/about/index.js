@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Header from '../../components/header/Header';
 import TopNav from '../../components/top-nav/TopNav';
 import AboutContainer from '../../components/about/AboutContainer';
 
@@ -11,7 +10,6 @@ export default function About(props) {
       <Head>
         <title>Ursu Yuvajana Vedike | About</title>
       </Head>
-      <Header />
       <TopNav />
       <AboutContainer />
       <Footer />

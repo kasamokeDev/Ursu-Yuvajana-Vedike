@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import Header from '../header/Header';
 
 import { useTheme } from '@mui/material/styles';
 import Styles from './style';
@@ -37,7 +38,7 @@ function TopNavDrawer() {
             <Divider />
             <ListItem onClick={() => setOpenDrawer(false)}>
               <ListItemText>
-                <Link href="/" sx={style.link}  underline="hover">
+                <Link href="/" sx={style.link} underline="hover">
                   Home
                 </Link>
               </ListItemText>
@@ -45,7 +46,7 @@ function TopNavDrawer() {
             <Divider />
             <ListItem>
               <ListItemText>
-                <Link href="/about" sx={style.link}  underline="hover">
+                <Link href="/about" sx={style.link} underline="hover">
                   About
                 </Link>
               </ListItemText>
@@ -53,7 +54,11 @@ function TopNavDrawer() {
             <Divider />
             <ListItem>
               <ListItemText>
-                <Link href="/memberRegistration" sx={style.link}  underline="hover">
+                <Link
+                  href="/memberRegistration"
+                  sx={style.link}
+                  underline="hover"
+                >
                   Member Registration
                 </Link>
               </ListItemText>
@@ -61,7 +66,7 @@ function TopNavDrawer() {
             <Divider />
             <ListItem>
               <ListItemText>
-                <Link href="/adminLogin" sx={style.link}  underline="hover">
+                <Link href="/adminLogin" sx={style.link} underline="hover">
                   Admin Login
                 </Link>
               </ListItemText>
@@ -73,6 +78,7 @@ function TopNavDrawer() {
       <IconButton sx={style.icon} onClick={() => setOpenDrawer(!openDrawer)}>
         <MenuIcon />
       </IconButton>
+      <Header />
     </>
   );
 }
