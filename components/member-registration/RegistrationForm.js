@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Container,
   Grid,
   TextField,
   Typography,
-  Button,
   FormControl,
   InputLabel,
   MenuItem,
   Select,
 } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
 import Error from '../formError/Error';
 import { useForm } from 'react-hook-form';
 import data from '../../staticData/data';
@@ -19,21 +19,42 @@ import { schema } from '../../Schema/UserSchema';
 import { useTheme } from '@mui/material/styles';
 import Styles from './style';
 
+import { displayRazorpay } from '../../util/Payment';
+
+import MembershipCheckModal from './MembershipCheckModal';
+
 function RegistrationForm() {
   const theme = useTheme();
   const style = Styles(theme);
+  const [openModal, setOpenModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const {
     register,
     formState: { errors },
     handleSubmit,
+    getValues,
     reset,
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema),
   });
   const submitForm = (data) => {
-    console.log(data);
-    reset();
+    setOpenModal(true);
+    setLoading(true);
+  };
+  const continuePayment = () => {
+    const data = getValues();
+    const result = displayRazorpay(
+      `${data.name.firstName} ${data.name.middleName} ${data.name.lastName}`,
+      data.email,
+      data.phoneNumber,
+      data.address.addressLine1
+    );
+    result.then((res)=>{
+      console.log(res);
+    })
+    .catch((err)=>{console.log(err)})
+    setLoading(false);
   };
   return (
     <Container
@@ -43,7 +64,7 @@ function RegistrationForm() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        mb: 10
+        mb: 10,
       }}
     >
       <Typography
@@ -54,14 +75,10 @@ function RegistrationForm() {
           fontFamily: 'arial, sans-serif',
         }}
       >
-        Member Registration
+        Become a member
       </Typography>
       <form style={{ marginTop: '1rem' }} onSubmit={handleSubmit(submitForm)}>
-        <Grid
-          container
-          spacing={2}
-          sx={style.formContainer}
-        >
+        <Grid container spacing={2} sx={style.formContainer}>
           <Grid xs={12} item>
             <Typography
               variant="h6"
@@ -106,12 +123,12 @@ function RegistrationForm() {
               type="date"
               {...register('dob')}
               error={Boolean(errors.dob)}
-              sx={{ width: {xs: '100%', sm: '82%'} }}
+              sx={{ width: { xs: '100%', sm: '82%' } }}
             ></TextField>
             <Error errorMessage={errors.dob?.message} />
           </Grid>
           <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
-            <FormControl fullWidth sx={{ width:  {xs: '100%', sm: '82%'}}}>
+            <FormControl fullWidth sx={{ width: { xs: '100%', sm: '82%' } }}>
               <InputLabel id="blood-group-select-label">Blood Group</InputLabel>
               <Select
                 labelId="blood-group-select-label"
@@ -130,7 +147,7 @@ function RegistrationForm() {
             <Error errorMessage={errors.bloodGroup?.message} />
           </Grid>
           <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
-            <FormControl fullWidth sx={{ width:  {xs: '100%', sm: '82%'} }}>
+            <FormControl fullWidth sx={{ width: { xs: '100%', sm: '82%' } }}>
               <InputLabel id="Gender-select-label">Gender</InputLabel>
               <Select
                 labelId="gender-select-label"
@@ -188,7 +205,7 @@ function RegistrationForm() {
             <Error errorMessage={errors.fatherName?.message} />
           </Grid>
           <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
-            <FormControl fullWidth sx={{ width:  {xs: '100%', sm: '82%'} }}>
+            <FormControl fullWidth sx={{ width: { xs: '100%', sm: '82%' } }}>
               <InputLabel id="marital-status-select-label">
                 Marital Status
               </InputLabel>
@@ -307,7 +324,7 @@ function RegistrationForm() {
             <Error errorMessage={errors.address?.city?.message} />
           </Grid>
           <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
-            <FormControl fullWidth sx={{ width: {xs: '100%', sm: '82%'} }}>
+            <FormControl fullWidth sx={{ width: { xs: '100%', sm: '82%' } }}>
               <InputLabel id="address-state-select-label">State</InputLabel>
               <Select
                 labelId="address-state-select-label"
@@ -378,22 +395,25 @@ function RegistrationForm() {
             item
             style={{ display: 'flex', justifyContent: 'center' }}
           >
-            <Button
+            <LoadingButton
               variant="contained"
               type="submit"
-              style={{
-                width: '50%',
-                textTransform: 'none',
-                borderRadius: '1rem',
-                backgroundColor: 'rgb(45, 132, 204)',
-                fontFamily: 'arial, sans-serif',
-              }}
+              sx={style.button}
+              loading={loading}
             >
-              Register
-            </Button>
+              Pay Rs.500 and Register
+            </LoadingButton>
           </Grid>
         </Grid>
       </form>
+      {openModal && (
+        <MembershipCheckModal
+          isOpen={openModal}
+          setOpenModal={setOpenModal}
+          setLoading={setLoading}
+          continuePayment={continuePayment}
+        />
+      )}
     </Container>
   );
 }
