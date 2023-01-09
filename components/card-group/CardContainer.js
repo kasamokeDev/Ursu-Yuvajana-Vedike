@@ -26,7 +26,7 @@ function CardContainer() {
   return (
     <Container maxWidth="xl" sx={{ mt: 4 }}>
       <Typography
-        variant="h3"
+        variant="h4"
         sx={{
           textDecoration: 'underline',
           color: 'rgb(69, 69, 181)',
