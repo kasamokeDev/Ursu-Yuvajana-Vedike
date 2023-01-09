@@ -1,9 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
+import { Typography } from '@mui/material';
 import React from 'react';
-import { Container } from '@mui/material';
 import Carousel from 'react-bootstrap/Carousel';
 
+import { useTheme } from '@mui/material/styles';
+import Styles from './style';
+
+import CarouselCaption from './CarouselCaption';
+
 function HeroCarousel() {
+  const theme = useTheme();
+  const style = Styles(theme);
   return (
     <Carousel fade slide style={{ width: '100vw' }}>
       <Carousel.Item>
@@ -13,6 +20,9 @@ function HeroCarousel() {
           alt="First slide"
           style={{ maxWidth: '100%', height: '15rem', objectFit: 'cover' }}
         />
+        <Carousel.Caption>
+          <CarouselCaption caption="Slide 1" />
+        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -21,6 +31,9 @@ function HeroCarousel() {
           alt="Second slide"
           style={{ maxWidth: '100%', height: '15rem', objectFit: 'cover' }}
         />
+        <Carousel.Caption>
+          <CarouselCaption caption="Slide 2" />
+        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -29,6 +42,9 @@ function HeroCarousel() {
           alt="Third slide"
           style={{ maxWidth: '100%', height: '15rem', objectFit: 'cover' }}
         />
+        <Carousel.Caption>
+          <CarouselCaption caption="Slide 3" />
+        </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
   );
