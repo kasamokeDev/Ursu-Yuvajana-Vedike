@@ -24,8 +24,18 @@ function CardContainer() {
     },
   ];
   return (
-    <Container maxWidth="xl" sx={{mt:4}}>
-      <Typography variant="h3" sx={{textAlign: 'center'}}>Our Goal</Typography>
+    <Container maxWidth="xl" sx={{ mt: 4 }}>
+      <Typography
+        variant="h3"
+        sx={{
+          textDecoration: 'underline',
+          color: 'rgb(69, 69, 181)',
+          fontFamily: 'arial, sans-serif',
+          textAlign: 'center',
+        }}
+      >
+        Our Goal
+      </Typography>
       <div
         class="d-flex flex-column d-sm-flex flex-sm-row bd-highlight mb-3 mt-3 justify-content-evenly align-items-center"
         style={{ width: '100%' }}

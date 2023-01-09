@@ -65,6 +65,7 @@ function RegistrationForm() {
         alignItems: 'center',
         justifyContent: 'center',
         mb: 10,
+        mt:2,
       }}
     >
       <Typography
