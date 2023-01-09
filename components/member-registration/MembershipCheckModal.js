@@ -88,6 +88,7 @@ function MembershipCheckModal({
                   setOpenModal(false);
                   continuePayment();
                 }}
+                disabled={true}
               >
                 Pay and Proceed
               </Button>
