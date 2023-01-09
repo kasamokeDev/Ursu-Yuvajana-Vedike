@@ -38,8 +38,24 @@ function TopNavDrawer() {
             <Divider />
             <ListItem onClick={() => setOpenDrawer(false)}>
               <ListItemText>
-                <Link href="/" sx={style.link} underline="hover">
-                  Home
+                <Link href="#" sx={style.link} underline="hover">
+                  Members
+                </Link>
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem onClick={() => setOpenDrawer(false)}>
+              <ListItemText>
+                <Link href="#" sx={style.link} underline="hover">
+                  Events
+                </Link>
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem onClick={() => setOpenDrawer(false)}>
+              <ListItemText>
+                <Link href="#" sx={style.link} underline="hover">
+                  Awards
                 </Link>
               </ListItemText>
             </ListItem>

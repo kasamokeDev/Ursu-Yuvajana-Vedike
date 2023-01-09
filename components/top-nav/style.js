@@ -2,10 +2,10 @@ const Styles = (theme) => ({
   link: {
     textDecoration: 'none',
     fontSize: '20px',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       color: 'blue',
     },
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('lg')]: {
       color: '#FFFFFF',
     },
     '&:hover': {

@@ -17,7 +17,7 @@ import Styles from './style';
 function TopNav() {
   const theme = useTheme();
   const style = Styles(theme);
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   return (
     <AppBar position="static">
       <CssBaseline />
@@ -28,8 +28,14 @@ function TopNav() {
           <>
             <Header />
             <Box sx={style.navlinks}>
-              <Link href="/" sx={style.link} underline="hover">
-                Home
+              <Link href="#" sx={style.link} underline="hover">
+                Members
+              </Link>
+              <Link href="#" sx={style.link} underline="hover">
+                Events
+              </Link>
+              <Link href="#" sx={style.link} underline="hover">
+                Awards
               </Link>
               <Link href="/about" sx={style.link} underline="hover">
                 About
