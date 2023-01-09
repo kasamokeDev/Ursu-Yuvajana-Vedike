@@ -401,7 +401,7 @@ function RegistrationForm() {
               sx={style.button}
               loading={loading}
             >
-              Pay Rs.500 and Register
+              Be a member
             </LoadingButton>
           </Grid>
         </Grid>

@@ -13,14 +13,22 @@ const Styles = (theme) => ({
     borderRadius: '1rem',
     backgroundColor: 'rgb(45, 132, 204)',
     fontFamily: 'arial, sans-serif',
-    color: '#FFFFFF'
+    color: '#FFFFFF',
+
+    '&:hover': {
+      backgroundColor: 'rgb(45, 132, 204)',
+      color: '#FFFFFF',
+    },
   },
   PaymentModal: {
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: '800px',
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
