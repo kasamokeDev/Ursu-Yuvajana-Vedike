@@ -13,6 +13,14 @@ const Styles = (theme) => ({
       },
     },
   },
+  carouselImage: {
+    [theme.breakpoints.down('sm')]: {
+        maxHeight: '15rem',
+    },
+    maxWidth: '100%',
+    maxHeight: '25rem',
+    objectFit: 'cover',
+  },
 });
 
 export default Styles;

@@ -29,15 +29,35 @@ function Header() {
             }}
           ></Box>
         </Grid>
-        <Grid item xs={10} md={10} className={style.headerTextContainer}>
-          <Typography
-            className={style.headerText}
-            onClick={() => {
-              window.open('/', '_self');
-            }}
-          >
-            Ursu Yuvajana Vedike
-          </Typography>
+        <Grid
+          item
+          container
+          xs={10}
+          md={10}
+          className={style.headerTextContainer}
+        >
+          <Grid item xs={12}>
+            <Typography
+              variant="h6"
+              className={style.headerText}
+              onClick={() => {
+                window.open('/', '_self');
+              }}
+            >
+              Ursu Yuvajana Vedike
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography
+              // className={style.headerText}
+              variant="subtitle2"
+              onClick={() => {
+                window.open('/', '_self');
+              }}
+            >
+              A nobel Intiative
+            </Typography>
+          </Grid>
         </Grid>
       </Grid>
     </Container>

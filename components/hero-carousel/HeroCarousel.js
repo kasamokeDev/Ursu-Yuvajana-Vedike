@@ -18,7 +18,7 @@ function HeroCarousel() {
           className="d-block w-100"
           src="/assets/images/carouselImage1.jpg"
           alt="First slide"
-          style={{ maxWidth: '100%', height: '15rem', objectFit: 'cover' }}
+          style={style.carouselImage}
         />
         <Carousel.Caption>
           <CarouselCaption caption="Slide 1" />
@@ -29,7 +29,7 @@ function HeroCarousel() {
           className="d-block w-100"
           src="/assets/images/carouselImage2.jpg"
           alt="Second slide"
-          style={{ maxWidth: '100%', height: '15rem', objectFit: 'cover' }}
+          style={style.carouselImage}
         />
         <Carousel.Caption>
           <CarouselCaption caption="Slide 2" />
@@ -40,7 +40,7 @@ function HeroCarousel() {
           className="d-block w-100"
           src="/assets/images/carouselImage3.jpg"
           alt="Third slide"
-          style={{ maxWidth: '100%', height: '15rem', objectFit: 'cover' }}
+          style={style.carouselImage}
         />
         <Carousel.Caption>
           <CarouselCaption caption="Slide 3" />
