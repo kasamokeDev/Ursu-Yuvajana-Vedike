@@ -12,7 +12,7 @@ function AboutContainer() {
       <Grid container spacing={2} sx={style.aboutGridContainer}>
         <Grid item xs={12} sx={style.aboutDividerContainer}>
           <Divider>
-            <Chip label="Parampara1" />
+            <Chip label="Parampara" />
           </Divider>
         </Grid>
         <Grid item xs={12} sm={5}>
