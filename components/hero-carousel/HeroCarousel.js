@@ -21,7 +21,7 @@ function HeroCarousel() {
           style={style.carouselImage}
         />
         <Carousel.Caption>
-          <CarouselCaption caption="Slide 1" />
+          <CarouselCaption caption="Slide One" />
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
