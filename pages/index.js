@@ -2,7 +2,7 @@ import Head from 'next/head';
 import HeroCarousel from '../components/hero-carousel/HeroCarousel';
 import CardContainer from '../components/card-group/CardContainer';
 import TopNav from '../components/top-nav/TopNav';
-import SamplePhotoGallery from '../components/photo-gallery/samplePhotoGallery';
+import SamplePhotoGallery from '../components/photo-gallery/SamplePhotoGallery';
 import MessageContainer from '../components/message/MessageContainer';
 import EventsContainer from '../components/upcoming-events/EventsContainer';
 import Footer from '../components/footer/Footer';
