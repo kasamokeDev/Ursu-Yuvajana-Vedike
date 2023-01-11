@@ -17,7 +17,7 @@ const Styles = (theme) => ({
         maxHeight: '15rem',
     },
     maxWidth: '100%',
-    maxHeight: '25rem',
+    maxHeight: '30rem',
     objectFit: 'cover',
   },
 });
