@@ -8,6 +8,9 @@ import {
   Link,
   Box,
 } from '@mui/material';
+
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import TopNavDrawer from './TopNavDrawer';
 import Header from '../header/Header';
 
@@ -29,23 +32,23 @@ function TopNav() {
             <Header />
             <Box sx={style.navlinks}>
               <Link href="#" sx={style.link} underline="hover">
-                Members
+                Membership
               </Link>
               <Link href="#" sx={style.link} underline="hover">
-                Events
+                Events & Gallery
               </Link>
               <Link href="#" sx={style.link} underline="hover">
-                Awards
+                Notice Board
               </Link>
               <Link href="/about" sx={style.link} underline="hover">
-                About
+                Our Vision
               </Link>
               <Link
-                href="/memberRegistration"
+                href="#"
                 sx={style.link}
                 underline="hover"
               >
-                Member Registration
+                About Us
               </Link>
               <Link href="/adminLogin" sx={style.link} underline="hover">
                 Admin Login

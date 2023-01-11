@@ -22,6 +22,12 @@ function CardContainer() {
       title: 'Goal 3',
       description: 'desc3',
     },
+    {
+      id: 3,
+      img: 'https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_1280.png',
+      title: 'Goal 4',
+      description: 'desc4',
+    },
   ];
   return (
     <Container maxWidth="xl" sx={{ mt: 4 }}>
@@ -37,7 +43,7 @@ function CardContainer() {
         Our Goal
       </Typography>
       <div
-        class="d-flex flex-column d-sm-flex flex-sm-row bd-highlight mb-3 mt-3 justify-content-evenly align-items-center"
+        className="d-flex flex-column d-sm-flex flex-sm-row bd-highlight mb-3 mt-3 justify-content-evenly align-items-center"
         style={{ width: '100%' }}
       >
         {data.map((item) => (
