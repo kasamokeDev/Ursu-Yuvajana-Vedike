@@ -16,13 +16,18 @@ function SamplePhotoGallery() {
     <Container maxWidth="md">
       <Typography
         variant="h4"
-        sx={{ textAlign: 'center', textDecoration: 'underline' }}
+        sx={{
+          textDecoration: 'underline',
+          color: 'rgb(69, 69, 181)',
+          fontFamily: 'arial, sans-serif',
+          textAlign: 'center',
+        }}
       >
         Photo Gallery
       </Typography>
       <Swiper
         spaceBetween={20}
-        slidesPerView={5}
+        slidesPerView={3}
         loop={true}
         autoplay
         onSlideChange={() => {}}
