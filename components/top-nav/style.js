@@ -6,13 +6,13 @@ const Styles = (theme) => ({
       color: 'blue',
     },
     [theme.breakpoints.up('lg')]: {
-      color: '#FFFFFF',
+      color: '#000000',
     },
-    '&:hover': {
-      color: 'yellow'
-    }
+    // '&:hover': {
+    //   color: 'yellow'
+    // }
   },
-  icon: { color: 'white' },
+  icon: { color: '#000' },
   logo: { flexGrow: '1', cursor: 'pointer' },
   draw: { background: 'red' },
   navlinks: {
@@ -21,6 +21,7 @@ const Styles = (theme) => ({
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-evenly',
+    alignItems: 'center',
   },
 });
 

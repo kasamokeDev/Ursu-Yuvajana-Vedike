@@ -20,6 +20,10 @@ const Styles = (theme) => ({
       maxHeight: '10rem',
       objectFit: 'cover',
     },
+    swiperSlide : {
+      maxHeight: '100%',
+      maxWidth: '100%',
+    },
     button: {
         width: '15rem',
         textTransform: 'none',
