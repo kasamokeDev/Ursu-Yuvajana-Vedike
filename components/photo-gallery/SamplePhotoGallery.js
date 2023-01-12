@@ -23,19 +23,20 @@ function SamplePhotoGallery() {
           textAlign: 'center',
         }}
       >
-        Photo Gallery
+        Gallery
       </Typography>
       <Swiper
         spaceBetween={20}
         slidesPerView={3}
         loop={true}
         autoplay
+        centeredSlides={true}
         onSlideChange={() => {}}
         modules={[Autoplay, Pagination, Navigation]}
         onSwiper={() => {}}
         className="mt-5"
       >
-        <SwiperSlide>
+        <SwiperSlide style={style.swiperSlide}>
           <img
             className="d-block w-100"
             src="/assets/images/carouselImage1.jpg"
@@ -43,7 +44,7 @@ function SamplePhotoGallery() {
             style={style.carouselImage}
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide style={style.swiperSlide}>
           <img
             className="d-block w-100"
             src="/assets/images/carouselImage2.jpg"
@@ -51,7 +52,7 @@ function SamplePhotoGallery() {
             style={style.carouselImage}
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide style={style.swiperSlide}>
           <img
             className="d-block w-100"
             src="/assets/images/carouselImage3.jpg"
@@ -59,10 +60,10 @@ function SamplePhotoGallery() {
             style={style.carouselImage}
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide style={style.swiperSlide}>
           <img
             className="d-block w-100"
-            src="/assets/images/carouselImage1.jpg"
+            src="/assets/images/carouselImage2.jpg"
             alt="First slide"
             style={style.carouselImage}
           />

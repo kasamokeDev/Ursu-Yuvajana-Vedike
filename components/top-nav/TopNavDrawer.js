@@ -7,15 +7,21 @@ import {
   IconButton,
   Divider,
   Toolbar,
-  Typography,
   Link,
 } from '@mui/material';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Header from '../header/Header';
 
 import { useTheme } from '@mui/material/styles';
 import Styles from './style';
+
+import Dropdown from './Dropdown';
 
 function TopNavDrawer() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -26,69 +32,102 @@ function TopNavDrawer() {
     <>
       <Drawer
         anchor="top"
-        sx={{ width: 250, color: '#fff' }}
+        sx={{ width: '100%', background: 'transparent' }}
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
       >
-        <Toolbar sx={{ backgroundColor: 'primary.main' }}>
-          <CloseIcon onClick={() => setOpenDrawer(false)} />
+        <Toolbar>
+          <CloseIcon
+            onClick={() => setOpenDrawer(false)}
+            style={{ color: '#000' }}
+          />
         </Toolbar>
         <box sx={{ backgroundColor: 'primary.main' }} height="100vh">
-          <List height="100vh">
-            <Divider />
-            <ListItem onClick={() => setOpenDrawer(false)}>
-              <ListItemText>
-                <Link href="#" sx={style.link} underline="hover">
-                  Members
-                </Link>
-              </ListItemText>
-            </ListItem>
-            <Divider />
-            <ListItem onClick={() => setOpenDrawer(false)}>
-              <ListItemText>
-                <Link href="#" sx={style.link} underline="hover">
-                  Events
-                </Link>
-              </ListItemText>
-            </ListItem>
-            <Divider />
-            <ListItem onClick={() => setOpenDrawer(false)}>
-              <ListItemText>
-                <Link href="#" sx={style.link} underline="hover">
-                  Awards
-                </Link>
-              </ListItemText>
-            </ListItem>
-            <Divider />
-            <ListItem>
-              <ListItemText>
-                <Link href="/about" sx={style.link} underline="hover">
-                  About
-                </Link>
-              </ListItemText>
-            </ListItem>
-            <Divider />
-            <ListItem>
-              <ListItemText>
-                <Link
-                  href="/memberRegistration"
-                  sx={style.link}
-                  underline="hover"
-                >
-                  Member Registration
-                </Link>
-              </ListItemText>
-            </ListItem>
-            <Divider />
-            <ListItem>
-              <ListItemText>
-                <Link href="/adminLogin" sx={style.link} underline="hover">
-                  Admin Login
-                </Link>
-              </ListItemText>
-            </ListItem>
-            <Divider />
-          </List>
+          <Accordion
+            TransitionProps={{ unmountOnExit: true }}
+            elevation={0}
+            style={style.link}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>Membership</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Dropdown title="All Members" items={[]} hide={true} url="#" />
+            </AccordionDetails>
+            <AccordionDetails>
+              <Dropdown
+                title="Board of directors"
+                items={[]}
+                hide={true}
+                url="#"
+              />
+            </AccordionDetails>
+            <AccordionDetails>
+              <Dropdown title="Life Members" items={[]} hide={true} url="#" />
+            </AccordionDetails>
+            <AccordionDetails>
+              <Dropdown
+                title="Member registration"
+                items={[]}
+                hide={true}
+                url="#"
+              />
+            </AccordionDetails>
+            <AccordionDetails>
+              <Dropdown title="Membership FAQ" items={[]} hide={true} url="#" />
+            </AccordionDetails>
+          </Accordion>
+          <Accordion
+            TransitionProps={{ unmountOnExit: true }}
+            elevation={0}
+            style={style.link}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>Events & Gallery</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Dropdown title="Past events" items={[]} hide={true} url="#" />
+            </AccordionDetails>
+            <AccordionDetails>
+              <Dropdown
+                title="Upcoming events"
+                items={[]}
+                hide={true}
+                url="#"
+              />
+            </AccordionDetails>
+            <AccordionDetails>
+              <Dropdown title="Photo Gallery" items={[]} hide={true} url="#" />
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionDetails>
+              <Dropdown title="Notice Board" items={[]} hide={true} />
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionDetails>
+              <Dropdown title="Our Vision" items={[]} hide={true} />
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionDetails>
+              <Dropdown title="About Us" items={[]} hide={true} url="/about" />
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionDetails>
+              <Dropdown title="Admin Login" items={[]} hide={true} url="/adminLogin" />
+            </AccordionDetails>
+          </Accordion>
         </box>
       </Drawer>
       <IconButton sx={style.icon} onClick={() => setOpenDrawer(!openDrawer)}>
