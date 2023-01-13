@@ -8,8 +8,11 @@ function Header() {
     <Container maxWidth="xs">
       <Grid
         container
-        style={{ alignItems: 'center' }}
+        style={{ alignItems: 'center', cursor: 'pointer', }}
         spacing={{ xs: 2, md: 1 }}
+        onClick={() => {
+          window.open('/', '_self');
+        }}
       >
         <Grid item xs={2} md={2} className={style.headerImageContainer}>
           <Box
@@ -24,9 +27,6 @@ function Header() {
             }}
             alt="Ursu Yuvajana Vedike"
             src="/assets/logo/OfficialLogo.png"
-            onClick={() => {
-              window.open('/', '_self');
-            }}
           ></Box>
         </Grid>
         <Grid

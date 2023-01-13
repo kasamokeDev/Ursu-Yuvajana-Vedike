@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  IconButton,
-  Divider,
-  Toolbar,
-  Link,
-} from '@mui/material';
+import { Drawer, IconButton, Toolbar } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -55,7 +46,7 @@ function TopNavDrawer() {
             >
               <Typography>Membership</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails style={{color: 'red'}}>
               <Dropdown title="All Members" items={[]} hide={true} url="#" />
             </AccordionDetails>
             <AccordionDetails>
@@ -74,7 +65,7 @@ function TopNavDrawer() {
                 title="Member registration"
                 items={[]}
                 hide={true}
-                url="#"
+                url="/memberRegistration"
               />
             </AccordionDetails>
             <AccordionDetails>
@@ -110,12 +101,12 @@ function TopNavDrawer() {
           </Accordion>
           <Accordion>
             <AccordionDetails>
-              <Dropdown title="Notice Board" items={[]} hide={true} />
+              <Dropdown title="Notice Board" items={[]} hide={true} url="#" />
             </AccordionDetails>
           </Accordion>
           <Accordion>
             <AccordionDetails>
-              <Dropdown title="Our Vision" items={[]} hide={true} />
+              <Dropdown title="Our Vision" items={[]} hide={true} url="#" />
             </AccordionDetails>
           </Accordion>
           <Accordion>
@@ -125,7 +116,12 @@ function TopNavDrawer() {
           </Accordion>
           <Accordion>
             <AccordionDetails>
-              <Dropdown title="Admin Login" items={[]} hide={true} url="/adminLogin" />
+              <Dropdown
+                title="Admin Login"
+                items={[]}
+                hide={true}
+                url="/adminLogin"
+              />
             </AccordionDetails>
           </Accordion>
         </box>

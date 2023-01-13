@@ -24,9 +24,8 @@ function TopNav() {
     >
       <CssBaseline />
       <Toolbar>
-        {isMobile ? (
-          <TopNavDrawer />
-        ) : (
+        {isMobile && <TopNavDrawer />}
+        {!isMobile && (
           <>
             <Header />
             <Box sx={style.navlinks}>
@@ -36,7 +35,7 @@ function TopNav() {
                   "<a href='#'style='color: black;font-size: 17px;'>All Members</a>",
                   "<a href='#'style='color: black;font-size: 17px;'>Board of directors</a>",
                   "<a href='#'style='color: black;font-size: 17px;'>Life Members</a>",
-                  "<a href='#' style='color: black;font-size: 17px;'>Member registration</a>",
+                  "<a href='/memberRegistration' style='color: black;font-size: 17px;'>Member registration</a>",
                   "<a href='#' style='color: black;font-size: 17px;'>Membership FAQs</a>",
                 ]}
               />
