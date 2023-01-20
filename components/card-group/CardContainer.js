@@ -1,34 +1,9 @@
 import { Typography, Container } from '@mui/material';
 import React from 'react';
 import Card from './Card';
+import data from '../../staticData/MockData';
 
-function CardContainer() {
-  const data = [
-    {
-      id: 1,
-      img: 'https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_1280.png',
-      title: 'Goal 1',
-      description: 'Desc1',
-    },
-    {
-      id: 2,
-      img: 'https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_1280.png',
-      title: 'Goal 2',
-      description: 'desc2',
-    },
-    {
-      id: 3,
-      img: 'https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_1280.png',
-      title: 'Goal 3',
-      description: 'desc3',
-    },
-    {
-      id: 3,
-      img: 'https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_1280.png',
-      title: 'Goal 4',
-      description: 'desc4',
-    },
-  ];
+function CardContainer({title}) {
   return (
     <Container maxWidth="xl" sx={{ mt: 4 }}>
       <Typography
@@ -40,7 +15,7 @@ function CardContainer() {
           textAlign: 'center',
         }}
       >
-        Our Goal
+        {title}
       </Typography>
       <div
         className="d-flex flex-column d-sm-flex flex-sm-row bd-highlight mb-3 mt-3 justify-content-evenly align-items-center"
