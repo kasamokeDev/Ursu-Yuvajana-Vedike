@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import React from 'react';
 import {
   AppBar,
@@ -5,7 +6,7 @@ import {
   CssBaseline,
   useMediaQuery,
   Box,
-  IconButton
+  IconButton,
 } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import TopNavDrawer from './TopNavDrawer';
@@ -44,13 +45,13 @@ function TopNav() {
               <Dropdown
                 title="Events & Gallery"
                 items={[
-                  "<a href='#'style='color: black;font-size: 17px;'>Past events</a>",
-                  "<a href='#'style='color: black;font-size: 17px;'>Upcoming events</a>",
+                  "<a href='/pastEvents'style='color: black;font-size: 17px;'>Past events</a>",
+                  "<a href='/upcomingEvents'style='color: black;font-size: 17px;'>Upcoming events</a>",
                   "<a href='/gallery' style='color: black;font-size: 17px;'>Photo Gallery</a>",
                 ]}
               />
-              <Dropdown title="Notice Board" items={[]} hide={true} />
-              <Dropdown title="Our Vision" items={[]} hide={true} />
+              <Dropdown title="Notice Board" items={[]} hide={true} url="/notice"/>
+              <Dropdown title="Our Vision" items={[]} hide={true} url="/vision"/>
               <Dropdown title="About Us" items={[]} hide={true} url="/about" />
               <Dropdown
                 title="More"
