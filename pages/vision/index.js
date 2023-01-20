@@ -3,7 +3,7 @@ import TopNav from '../../components/top-nav/TopNav';
 import Footer from '../../components/footer/Footer';
 import AboutContainer from '../../components/about/AboutContainer';
 
-export default function MemberRegistration() {
+export default function Vision() {
   return (
     <>
       <Head>
