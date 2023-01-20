@@ -5,7 +5,9 @@ import {
   CssBaseline,
   useMediaQuery,
   Box,
+  IconButton
 } from '@mui/material';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import TopNavDrawer from './TopNavDrawer';
 import Header from '../header/Header';
 
@@ -32,11 +34,11 @@ function TopNav() {
               <Dropdown
                 title="Membership"
                 items={[
-                  "<a href='#'style='color: black;font-size: 17px;'>All Members</a>",
-                  "<a href='#'style='color: black;font-size: 17px;'>Board of directors</a>",
-                  "<a href='#'style='color: black;font-size: 17px;'>Life Members</a>",
+                  "<a href='/allMembers'style='color: black;font-size: 17px;'>All Members</a>",
+                  "<a href='/boardOfDirectors'style='color: black;font-size: 17px;'>Board of directors</a>",
+                  "<a href='/lifeMembers'style='color: black;font-size: 17px;'>Life Members</a>",
                   "<a href='/memberRegistration' style='color: black;font-size: 17px;'>Member registration</a>",
-                  "<a href='#' style='color: black;font-size: 17px;'>Membership FAQs</a>",
+                  "<a href='/membersFAQ' style='color: black;font-size: 17px;'>Membership FAQs</a>",
                 ]}
               />
               <Dropdown
@@ -44,16 +46,16 @@ function TopNav() {
                 items={[
                   "<a href='#'style='color: black;font-size: 17px;'>Past events</a>",
                   "<a href='#'style='color: black;font-size: 17px;'>Upcoming events</a>",
-                  "<a href='#' style='color: black;font-size: 17px;'>Photo Gallery</a>",
+                  "<a href='/gallery' style='color: black;font-size: 17px;'>Photo Gallery</a>",
                 ]}
               />
               <Dropdown title="Notice Board" items={[]} hide={true} />
               <Dropdown title="Our Vision" items={[]} hide={true} />
               <Dropdown title="About Us" items={[]} hide={true} url="/about" />
               <Dropdown
-                title="Admin"
+                title="More"
                 items={[
-                  "<a href='/adminLogin' style='color: black;font-size: 17px;'>Login</a>",
+                  "<a href='/adminLogin' style='color: black;font-size: 17px;'>Admin  </a>",
                 ]}
               />
             </Box>

@@ -26,7 +26,7 @@ export default function Home(props) {
         <TopBar />
         <TopNav />
         <HeroCarousel />
-        <CardContainer />
+        <CardContainer title="Our Moto"/>
         <SamplePhotoGallery />
         <MessageContainer />
         <EventsContainer />

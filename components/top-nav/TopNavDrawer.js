@@ -47,18 +47,18 @@ function TopNavDrawer() {
               <Typography>Membership</Typography>
             </AccordionSummary>
             <AccordionDetails style={{color: 'red'}}>
-              <Dropdown title="All Members" items={[]} hide={true} url="#" />
+              <Dropdown title="All Members" items={[]} hide={true} url="/allMembers" />
             </AccordionDetails>
             <AccordionDetails>
               <Dropdown
                 title="Board of directors"
                 items={[]}
                 hide={true}
-                url="#"
+                url="/boardOfDirectors"
               />
             </AccordionDetails>
             <AccordionDetails>
-              <Dropdown title="Life Members" items={[]} hide={true} url="#" />
+              <Dropdown title="Life Members" items={[]} hide={true} url="/lifeMembers" />
             </AccordionDetails>
             <AccordionDetails>
               <Dropdown
@@ -69,7 +69,7 @@ function TopNavDrawer() {
               />
             </AccordionDetails>
             <AccordionDetails>
-              <Dropdown title="Membership FAQ" items={[]} hide={true} url="#" />
+              <Dropdown title="Membership FAQ" items={[]} hide={true} url="/membersFAQ" />
             </AccordionDetails>
           </Accordion>
           <Accordion
@@ -96,7 +96,7 @@ function TopNavDrawer() {
               />
             </AccordionDetails>
             <AccordionDetails>
-              <Dropdown title="Photo Gallery" items={[]} hide={true} url="#" />
+              <Dropdown title="Photo Gallery" items={[]} hide={true} url="/gallery" />
             </AccordionDetails>
           </Accordion>
           <Accordion>
