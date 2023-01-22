@@ -48,6 +48,7 @@ function RegistrationForm() {
     console.log(getValues());
     setOpenModal(true);
     setLoading(true);
+    reset();
   };
   const continuePayment = () => {
     const data = getValues();
