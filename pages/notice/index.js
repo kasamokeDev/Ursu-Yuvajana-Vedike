@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import TopNav from '../../components/top-nav/TopNav';
 import Footer from '../../components/footer/Footer';
+import NoticeContainer from '../../components/notice-board/NoticeContainer';
 
 export default function Notice() {
   return (
@@ -10,6 +11,7 @@ export default function Notice() {
         <meta property="og:title" content="Urus title" key="title" />
       </Head>
       <TopNav />
+      <NoticeContainer />
       <Footer />
     </>
   );

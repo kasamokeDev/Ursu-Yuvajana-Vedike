@@ -8,6 +8,9 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
 } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Error from '../formError/Error';
@@ -28,6 +31,9 @@ function RegistrationForm() {
   const style = Styles(theme);
   const [openModal, setOpenModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [sameAddress, setSameAddress] = useState(true);
+  const [isNRI, setIsNRI] = useState(false);
+  const [isEmployed, setIsEmployed] = useState(true);
   const {
     register,
     formState: { errors },
@@ -39,21 +45,25 @@ function RegistrationForm() {
     resolver: yupResolver(schema),
   });
   const submitForm = (data) => {
+    console.log(getValues());
     setOpenModal(true);
     setLoading(true);
   };
   const continuePayment = () => {
     const data = getValues();
     const result = displayRazorpay(
-      `${data.name.firstName} ${data.name.middleName} ${data.name.lastName}`,
+      `${data.fullName}`,
       data.email,
       data.phoneNumber,
-      data.address.addressLine1
+      data.address.locality
     );
-    result.then((res)=>{
-      console.log(res);
-    })
-    .catch((err)=>{console.log(err)})
+    result
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     setLoading(false);
   };
   return (
@@ -65,72 +75,46 @@ function RegistrationForm() {
         alignItems: 'center',
         justifyContent: 'center',
         mb: 10,
-        mt:2,
+        mt: 2,
       }}
     >
-      <Typography
-        variant="h4"
-        style={{
-          textDecoration: 'underline',
-          color: 'rgb(69, 69, 181)',
-          fontFamily: 'arial, sans-serif',
-        }}
-      >
-        Become a member
+      <Typography variant="h4">
+        <strong>Member Registration Form</strong>
       </Typography>
       <form style={{ marginTop: '1rem' }} onSubmit={handleSubmit(submitForm)}>
         <Grid container spacing={2} sx={style.formContainer}>
           <Grid xs={12} item>
-            <Typography
-              variant="h6"
-              style={{
-                textDecoration: 'underline',
-                color: 'rgb(45, 132, 204)',
-                fontFamily: 'arial, sans-serif',
-              }}
-            >
-              Personal Details:
+            <Typography variant="h6">
+              <strong>Personal Details:</strong>
             </Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
-              label="First Name"
+              required
+              label="Full Name"
               type="text"
-              {...register('name.firstName')}
-              error={Boolean(errors.name?.firstName)}
+              {...register('fullName')}
+              error={Boolean(errors?.fullName)}
             ></TextField>
-            <Error errorMessage={errors.name?.firstName?.message} />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="Middle Name"
-              type="text"
-              {...register('name.middleName')}
-              error={Boolean(errors.name?.middleName)}
-            ></TextField>
-            <Error errorMessage={errors.name?.middleName?.message} />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="Last Name"
-              type="text"
-              {...register('name.lastName')}
-              error={Boolean(errors.name?.lastName)}
-            ></TextField>
-            <Error errorMessage={errors.name?.lastName?.message} />
+            <Error errorMessage={errors.fullName?.message} />
           </Grid>
           <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
             <TextField
               type="date"
+              label="Date of Birth"
+              InputLabelProps={{ shrink: true }}
               {...register('dob')}
               error={Boolean(errors.dob)}
               sx={{ width: { xs: '100%', sm: '82%' } }}
+              required
             ></TextField>
             <Error errorMessage={errors.dob?.message} />
           </Grid>
           <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
             <FormControl fullWidth sx={{ width: { xs: '100%', sm: '82%' } }}>
-              <InputLabel id="blood-group-select-label">Blood Group</InputLabel>
+              <InputLabel id="blood-group-select-label" required>
+                Blood Group
+              </InputLabel>
               <Select
                 labelId="blood-group-select-label"
                 id="blood-group-select"
@@ -149,7 +133,9 @@ function RegistrationForm() {
           </Grid>
           <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
             <FormControl fullWidth sx={{ width: { xs: '100%', sm: '82%' } }}>
-              <InputLabel id="Gender-select-label">Gender</InputLabel>
+              <InputLabel id="Gender-select-label" required>
+                Gender
+              </InputLabel>
               <Select
                 labelId="gender-select-label"
                 id="gender-select"
@@ -168,46 +154,17 @@ function RegistrationForm() {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
-              label="Aadhar Number"
-              type="number"
-              {...register('aadharNumber')}
-              error={Boolean(errors.aadharNumber)}
-            ></TextField>
-            <Error errorMessage={errors.aadharNumber?.message} />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="PAN"
-              type="text"
-              {...register('panNumber')}
-              error={Boolean(errors.panNumber)}
-            ></TextField>
-            <Error errorMessage={errors.panNumber?.message} />
-          </Grid>
-          <Grid xs={12} item>
-            <Typography
-              variant="h6"
-              style={{
-                textDecoration: 'underline',
-                color: 'rgb(45, 132, 204)',
-                fontFamily: 'arial, sans-serif',
-              }}
-            >
-              Relationship Details:
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
               label="Father's Name"
               type="text"
               {...register('fatherName')}
               error={Boolean(errors.fatherName)}
+              required
             ></TextField>
             <Error errorMessage={errors.fatherName?.message} />
           </Grid>
           <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
             <FormControl fullWidth sx={{ width: { xs: '100%', sm: '82%' } }}>
-              <InputLabel id="marital-status-select-label">
+              <InputLabel id="marital-status-select-label" required>
                 Marital Status
               </InputLabel>
               <Select
@@ -226,113 +183,153 @@ function RegistrationForm() {
             </FormControl>
             <Error errorMessage={errors.maritalStatus?.message} />
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="Spouse Name(If Applicable)"
-              type="text"
-              {...register('spouseName')}
-              error={Boolean(errors.spouseName)}
-            ></TextField>
+          <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    defaultChecked
+                    {...register('employed')}
+                    onChange={(e) => {
+                      e.target.checked
+                        ? setIsEmployed(true)
+                        : setIsEmployed(false);
+                    }}
+                  />
+                }
+                label="Employed"
+              />
+            </FormGroup>
           </Grid>
           <Grid xs={12} item>
-            <Typography
-              variant="h6"
-              style={{
-                textDecoration: 'underline',
-                color: 'rgb(45, 132, 204)',
-                fontFamily: 'arial, sans-serif',
-              }}
-            >
-              Academic Details:
+            <Typography variant="h6">
+              <strong>Education:</strong>
             </Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
-              label="Highest Qualification"
+              label="Education"
               type="text"
-              {...register('qualification')}
-              error={Boolean(errors.qualification)}
+              {...register('education')}
             ></TextField>
-            <Error errorMessage={errors.qualification?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="School/University Name"
-              type="text"
-              {...register('academicInstitution')}
-              error={Boolean(errors.academicInstitution)}
+              {...register('school')}
             ></TextField>
-            <Error errorMessage={errors.academicInstitution?.message} />
           </Grid>
+          {isEmployed && (
+            <>
+              <Grid xs={12} item>
+                <Typography variant="h6">
+                  <strong>Job Details:</strong>
+                </Typography>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  label="Occupation"
+                  type="text"
+                  {...register('occupation')}
+                ></TextField>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  label="Company Name"
+                  type="text"
+                  {...register('companyName')}
+                ></TextField>
+              </Grid>
+            </>
+          )}
+
           <Grid xs={12} item>
-            <Typography
-              variant="h6"
-              style={{
-                textDecoration: 'underline',
-                color: 'rgb(45, 132, 204)',
-                fontFamily: 'arial, sans-serif',
-              }}
-            >
-              Professional Details:
+            <Typography variant="h6">
+              <strong>Address:</strong>
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="Occupation"
-              type="text"
-              {...register('occupation')}
-              error={Boolean(errors.occupation)}
-            ></TextField>
-            <Error errorMessage={errors.occupation?.message} />
+          <Grid item xs={12} sm={6} sx={{ mt: -1 }}>
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={sameAddress}
+                    {...register('sameAddress')}
+                    onChange={(e) =>
+                      e.target.checked
+                        ? (function () {
+                            setSameAddress(true);
+                            setIsNRI(false);
+                          })()
+                        : (function () {
+                            setSameAddress(false);
+                          })()
+                    }
+                  />
+                }
+                label="Permanent and Current address is same"
+              />
+            </FormGroup>
+          </Grid>
+          <Grid item xs={12} sm={6} sx={{ mt: -1 }}>
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={isNRI}
+                    {...register('isNRI')}
+                    onChange={(e) => {
+                      e.target.checked
+                        ? (function () {
+                            setIsNRI(true);
+                            setSameAddress(false);
+                          })()
+                        : (function () {
+                            setIsNRI(false);
+                            setSameAddress(true);
+                          })();
+                    }}
+                  />
+                }
+                label="NRI"
+              />
+            </FormGroup>
+          </Grid>
+
+          <Grid item xs={12}>
+            <strong>Permanent Address</strong>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
-              label="Company Name"
+              label="Locality"
               type="text"
-              {...register('companyName')}
-              error={Boolean(errors.companyName)}
+              {...register('Paddress.locality')}
+              error={Boolean(errors.Paddress?.locality)}
+              required
             ></TextField>
-            <Error errorMessage={errors.companyName?.message} />
-          </Grid>
-          <Grid xs={12} item>
-            <Typography
-              variant="h6"
-              style={{
-                textDecoration: 'underline',
-                color: 'rgb(45, 132, 204)',
-                fontFamily: 'arial, sans-serif',
-              }}
-            >
-              Geo Details:
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="Full Address"
-              type="text"
-              {...register('address.addressLine1')}
-              error={Boolean(errors.address?.addressLine1)}
-            ></TextField>
-            <Error errorMessage={errors.address?.addressLine1?.message} />
+            <Error errorMessage={errors.Paddress?.locality?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="City"
               type="text"
-              {...register('address.city')}
-              error={Boolean(errors.address?.city)}
+              {...register('Paddress.city')}
+              error={Boolean(errors.Paddress?.city)}
+              required
             ></TextField>
-            <Error errorMessage={errors.address?.city?.message} />
+            <Error errorMessage={errors.Paddress?.city?.message} />
           </Grid>
           <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
             <FormControl fullWidth sx={{ width: { xs: '100%', sm: '82%' } }}>
-              <InputLabel id="address-state-select-label">State</InputLabel>
+              <InputLabel id="address-state-select-label" required>
+                State
+              </InputLabel>
               <Select
                 labelId="address-state-select-label"
                 id="address-state-select"
                 label="State"
-                {...register('address.state')}
-                error={Boolean(errors.address?.state)}
+                {...register('Paddress.state')}
+                error={Boolean(errors.Paddress?.state)}
               >
                 {data.states.map((state) => (
                   <MenuItem value={state} key={state}>
@@ -341,28 +338,147 @@ function RegistrationForm() {
                 ))}
               </Select>
             </FormControl>
-            <Error errorMessage={errors.address?.state?.message} />
+            <Error errorMessage={errors.Paddress?.state?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="Pin Code"
               type="text"
-              {...register('address.pincode')}
-              error={Boolean(errors.address?.pincode)}
+              {...register('Paddress.pincode')}
+              error={Boolean(errors.Paddress?.pincode)}
+              required
             ></TextField>
-            <Error errorMessage={errors.address?.pincode?.message} />
+            <Error errorMessage={errors.Paddress?.pincode?.message} />
           </Grid>
+
+          {!sameAddress && !isNRI && (
+            <>
+              <Grid item xs={12}>
+                <strong>Current Address</strong>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  label="Locality"
+                  type="text"
+                  {...register('Caddress.locality')}
+                  error={Boolean(errors.Caddress?.locality)}
+                  required
+                ></TextField>
+                <Error errorMessage={errors.Caddress?.locality?.message} />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  label="City"
+                  type="text"
+                  {...register('Caddress.city')}
+                  error={Boolean(errors.Caddress?.city)}
+                  required
+                ></TextField>
+                <Error errorMessage={errors.Caddress?.city?.message} />
+              </Grid>
+              <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
+                <TextField
+                  label="State"
+                  type="text"
+                  {...register('Caddress.state')}
+                  error={Boolean(errors.Caddress?.state)}
+                  required
+                ></TextField>
+                <Error errorMessage={errors.Caddress?.state?.message} />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  label="Pin Code"
+                  type="text"
+                  {...register('Caddress.pincode')}
+                  error={Boolean(errors.Caddress?.pincode)}
+                  required
+                ></TextField>
+                <Error errorMessage={errors.Caddress?.pincode?.message} />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  label="Country"
+                  type="text"
+                  {...register('Caddress.country')}
+                  error={Boolean(errors.Caddress?.country)}
+                  required
+                ></TextField>
+                <Error errorMessage={errors.Caddress?.country?.message} />
+              </Grid>
+            </>
+          )}
+          {isNRI && (
+            <>
+              <Grid item xs={12}>
+                <strong>Current Address</strong>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  label="Locality"
+                  type="text"
+                  {...register('Caddress.locality')}
+                  error={Boolean(errors.Caddress?.locality)}
+                  required
+                ></TextField>
+                <Error errorMessage={errors.Caddress?.locality?.message} />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  label="City"
+                  type="text"
+                  {...register('Caddress.city')}
+                  error={Boolean(errors.Caddress?.city)}
+                  required
+                ></TextField>
+                <Error errorMessage={errors.Caddress?.city?.message} />
+              </Grid>
+              <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
+                <TextField
+                  label="State"
+                  type="text"
+                  {...register('Caddress.state')}
+                  error={Boolean(errors.Caddress?.state)}
+                  required
+                ></TextField>
+                <Error errorMessage={errors.Caddress?.state?.message} />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  label="Pin Code"
+                  type="text"
+                  {...register('Caddress.pincode')}
+                  error={Boolean(errors.Caddress?.pincode)}
+                  required
+                ></TextField>
+                <Error errorMessage={errors.Caddress?.pincode?.message} />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  label="Country"
+                  type="text"
+                  {...register('Caddress.country')}
+                  error={Boolean(errors.Caddress?.country)}
+                  required
+                ></TextField>
+                <Error errorMessage={errors.Caddress?.country?.message} />
+              </Grid>
+            </>
+          )}
           <Grid xs={12} item>
-            <Typography
-              variant="h6"
-              style={{
-                textDecoration: 'underline',
-                color: 'rgb(45, 132, 204)',
-                fontFamily: 'arial, sans-serif',
-              }}
-            >
-              Contact Details:
+            <Typography variant="h6">
+              <strong>Contact Details:</strong>
             </Typography>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <TextField
+              label="Email Id"
+              type="email"
+              {...register('email')}
+              error={Boolean(errors.email)}
+              required
+            ></TextField>
+            <Error errorMessage={errors.email?.message} />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -373,36 +489,18 @@ function RegistrationForm() {
             ></TextField>
             <Error errorMessage={errors.phoneNumber?.message} />
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="Alternate Phone Number"
-              type="text"
-              {...register('altPhoneNumber')}
-              error={Boolean(errors.altPhoneNumber)}
-            ></TextField>
-            <Error errorMessage={errors.altPhoneNumber?.message} />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="Email Id"
-              type="email"
-              {...register('email')}
-              error={Boolean(errors.email)}
-            ></TextField>
-            <Error errorMessage={errors.email?.message} />
-          </Grid>
           <Grid
             xs={12}
             item
             style={{ display: 'flex', justifyContent: 'center' }}
           >
             <LoadingButton
-              variant="contained"
+              variant="outlined"
               type="submit"
               sx={style.button}
               loading={loading}
             >
-              Be a member
+              Become a member
             </LoadingButton>
           </Grid>
         </Grid>
