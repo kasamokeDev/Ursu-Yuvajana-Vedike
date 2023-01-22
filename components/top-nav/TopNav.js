@@ -6,9 +6,7 @@ import {
   CssBaseline,
   useMediaQuery,
   Box,
-  IconButton,
 } from '@mui/material';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import TopNavDrawer from './TopNavDrawer';
 import Header from '../header/Header';
 
@@ -50,8 +48,18 @@ function TopNav() {
                   "<a href='/gallery' style='color: black;font-size: 17px;'>Photo Gallery</a>",
                 ]}
               />
-              <Dropdown title="Notice Board" items={[]} hide={true} url="/notice"/>
-              <Dropdown title="Our Vision" items={[]} hide={true} url="/vision"/>
+              <Dropdown
+                title="Notice Board"
+                items={[]}
+                hide={true}
+                url="/notice"
+              />
+              <Dropdown
+                title="Our Vision"
+                items={[]}
+                hide={true}
+                url="/vision"
+              />
               <Dropdown title="About Us" items={[]} hide={true} url="/about" />
               <Dropdown
                 title="More"

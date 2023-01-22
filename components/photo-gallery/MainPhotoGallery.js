@@ -15,9 +15,7 @@ function MainPhotoGallery() {
         mt: 2,
       }}
     >
-      <Typography
-        variant="h4"
-      >
+      <Typography variant="h4">
         <strong>Photo Gallery</strong>
       </Typography>
       <div class="lightbox">
