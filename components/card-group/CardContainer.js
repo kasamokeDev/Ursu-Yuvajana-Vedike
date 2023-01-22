@@ -3,19 +3,11 @@ import React from 'react';
 import Card from './Card';
 import data from '../../staticData/MockData';
 
-function CardContainer({title}) {
+function CardContainer({ title }) {
   return (
     <Container maxWidth="xl" sx={{ mt: 4 }}>
-      <Typography
-        variant="h4"
-        sx={{
-          textDecoration: 'underline',
-          color: 'rgb(69, 69, 181)',
-          fontFamily: 'arial, sans-serif',
-          textAlign: 'center',
-        }}
-      >
-        {title}
+      <Typography variant="h4" sx={{textAlign: 'center'}}>
+        <strong>{title}</strong>
       </Typography>
       <div
         className="d-flex flex-column d-sm-flex flex-sm-row bd-highlight mb-3 mt-3 justify-content-evenly align-items-center"

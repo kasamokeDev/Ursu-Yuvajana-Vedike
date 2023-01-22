@@ -33,18 +33,11 @@ function AdminLoginContainer() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        mt:2,
+        mt: 2,
       }}
     >
-      <Typography
-        variant="h4"
-        style={{
-          textDecoration: 'underline',
-          color: 'rgb(69, 69, 181)',
-          fontFamily: 'arial, sans-serif',
-        }}
-      >
-        Admin Login
+      <Typography variant="h4">
+        <strong>Admin Login</strong>
       </Typography>
       <form style={{ marginTop: '1rem' }} onSubmit={handleSubmit(submitForm)}>
         <Grid container spacing={2} sx={style.formContainer}>
