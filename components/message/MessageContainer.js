@@ -24,7 +24,7 @@ function MessageContainer() {
           textAlign: 'center',
         }}
       >
-        Messages from our past Directors
+        Messages from our former directors
       </Typography>
       <Swiper
         spaceBetween={20}

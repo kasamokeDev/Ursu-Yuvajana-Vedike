@@ -3,7 +3,7 @@ import Head from 'next/head';
 import TopNav from '../../components/top-nav/TopNav';
 // import Footer from '../../components/footer/Footer';
 
-export default function MemberRegistration() {
+export default function AdminDashboard() {
   return (
     <>
       <Head>

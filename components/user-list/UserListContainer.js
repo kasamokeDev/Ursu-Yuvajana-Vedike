@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Typography } from '@mui/material';
 
-function UserListContainer({title}) {
+function UserListContainer({ title }) {
   return (
     <Container
       maxWidth="md"
@@ -14,15 +14,8 @@ function UserListContainer({title}) {
         mt: 2,
       }}
     >
-      <Typography
-        variant="h4"
-        style={{
-          textDecoration: 'underline',
-          color: 'rgb(69, 69, 181)',
-          fontFamily: 'arial, sans-serif',
-        }}
-      >
-        {title}
+      <Typography variant="h4">
+        <strong>{title}</strong>
       </Typography>
       <ul class="list-group list-group-light">
         <li class="list-group-item d-flex justify-content-between align-items-center">

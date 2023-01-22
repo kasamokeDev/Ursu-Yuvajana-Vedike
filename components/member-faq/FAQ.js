@@ -16,13 +16,8 @@ function FAQ() {
     >
       <Typography
         variant="h4"
-        style={{
-          textDecoration: 'underline',
-          color: 'rgb(69, 69, 181)',
-          fontFamily: 'arial, sans-serif',
-        }}
       >
-        FAQ
+        <strong>FAQ</strong>
       </Typography>
       <section>
         <p class="text-center mb-5">

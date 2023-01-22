@@ -1,44 +1,32 @@
 import * as yup from 'yup';
 
 export const schema = yup.object().shape({
-  name: yup.object().shape({
-    firstName: yup.string().required('Required Field'),
-    middleName: yup.string().required('Required Field'),
-    lastName: yup.string().required('Required Field'),
-  }),
+  fullName: yup.string().required('Required Field'),
   dob: yup
     .date('Please enter a valid date')
     .typeError('Please provide valid date')
     .required('Required Field'),
   bloodGroup: yup.string().required('Required Field'),
   gender: yup.string().required('Required Field'),
-  aadharNumber: yup
-    .number()
-    .typeError('Please provide valid number')
-    .required('Required Field')
-    .test('len', 'Must be exactly of 16 length', val => val && val.toString().length === 16 ),
-  panNumber: yup.string().min(10).required('Required Field'),
   fatherName: yup.string().required('Required Field'),
   maritalStatus: yup.string().required('Required Field'),
-  spouseName: yup.string(),
-  qualification: yup.string().required('Required Field'),
-  academicInstitution: yup.string().required('Required Field'),
-  occupation: yup.string().required('Required Field'),
-  companyName: yup.string().required('Required Field'),
-  address: yup.object().shape({
-    addressLine1: yup.string().required('Required Field'),
+  education: yup.string(),
+  school: yup.string(),
+  occupation: yup.string(),
+  companyName: yup.string(),
+  Paddress: yup.object().shape({
+    locality: yup.string().required('Required Field'),
     city: yup.string().required('Required Field'),
     state: yup.string().required('Required Field'),
     pincode: yup.string().required('Required Field'),
   }),
-  phoneNumber: yup
-    .number()
-    .min(10)
-    .typeError('Please provide valid number')
-    .required('Required Field'),
-  altPhoneNumber: yup
-    .number()
-    .min(10)
-    .typeError('Please provide valid number'),
+  Caddress: yup.object().shape({
+    locality: yup.string().min(5, 'At least 5 characters').nullable(),
+    city: yup.string().min(2, 'At least 2 characters').nullable(),
+    state: yup.string().min(3, 'At least 3 characters').nullable(),
+    pincode: yup.string().min(6, 'At least 6 characters').nullable(),
+    country: yup.string().nullable(),
+  }),
   email: yup.string().email().required('Required Field'),
+  phoneNumber: yup.number().typeError('Please provide valid number'),
 });

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import React from 'react';
 import {
   MDBFooter,
@@ -38,8 +39,8 @@ export default function Footer() {
         <MDBContainer className="text-center text-md-start mt-5">
           <MDBRow className="mt-3">
             <MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">
-                <MDBIcon color="secondary" icon="gem" className="me-3" />
+              <h6 className="text-uppercase fw-bold mb-4" style={{cursor: 'pointer'}} onClick={()=>{window.open('/', '_self')}}>
+                <MDBIcon color="secondary" icon="gem" className="me-3"/>
                 Ursu Yuvajana Vedike
               </h6>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
@@ -48,23 +49,18 @@ export default function Footer() {
             <MDBCol md="2" lg="2" xl="2" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Quick Links</h6>
               <p>
-                <a href="#!" className="text-reset">
+                <a href="/lifeMembers" className="text-reset">
                   Life Members
                 </a>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <a href="/vision" className="text-reset">
                   Our Vision
                 </a>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <a href="/about" className="text-reset">
                   About Us
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Contact Us
                 </a>
               </p>
             </MDBCol>
@@ -72,12 +68,12 @@ export default function Footer() {
             <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
               <p>
-                <a href="#!" className="text-reset">
+                <a href="/memberRegistration" className="text-reset">
                   Member Registration
                 </a>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <a href="/adminLogin" className="text-reset">
                   Admin Login
                 </a>
               </p>

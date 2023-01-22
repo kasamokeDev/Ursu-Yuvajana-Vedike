@@ -16,7 +16,7 @@ const Styles = (theme) => ({
     color: '#FFFFFF',
 
     '&:hover': {
-      backgroundColor: 'rgb(45, 132, 204)',
+      backgroundColor: 'green',
       color: '#FFFFFF',
     },
   },

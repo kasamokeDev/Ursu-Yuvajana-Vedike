@@ -85,14 +85,14 @@ function TopNavDrawer() {
               <Typography>Events & Gallery</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Dropdown title="Past events" items={[]} hide={true} url="#" />
+              <Dropdown title="Past events" items={[]} hide={true} url="/pastEvents" />
             </AccordionDetails>
             <AccordionDetails>
               <Dropdown
                 title="Upcoming events"
                 items={[]}
                 hide={true}
-                url="#"
+                url="/upcomingEvents"
               />
             </AccordionDetails>
             <AccordionDetails>
@@ -101,12 +101,12 @@ function TopNavDrawer() {
           </Accordion>
           <Accordion>
             <AccordionDetails>
-              <Dropdown title="Notice Board" items={[]} hide={true} url="#" />
+              <Dropdown title="Notice Board" items={[]} hide={true} url="/notice" />
             </AccordionDetails>
           </Accordion>
           <Accordion>
             <AccordionDetails>
-              <Dropdown title="Our Vision" items={[]} hide={true} url="#" />
+              <Dropdown title="Our Vision" items={[]} hide={true} url="/vision" />
             </AccordionDetails>
           </Accordion>
           <Accordion>

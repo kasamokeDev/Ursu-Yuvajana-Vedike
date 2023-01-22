@@ -15,16 +15,8 @@ function MainPhotoGallery() {
         mt: 2,
       }}
     >
-      <Typography
-        variant="h4"
-        style={{
-          textDecoration: 'underline',
-          color: 'rgb(69, 69, 181)',
-          fontFamily: 'arial, sans-serif',
-          marginBottom: '1rem',
-        }}
-      >
-        Photo Gallery
+      <Typography variant="h4">
+        <strong>Photo Gallery</strong>
       </Typography>
       <div class="lightbox">
         <div class="row">
