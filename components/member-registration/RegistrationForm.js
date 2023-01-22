@@ -88,17 +88,18 @@ function RegistrationForm() {
               <strong>Personal Details:</strong>
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
             <TextField
               required
               label="Full Name"
               type="text"
               {...register('fullName')}
               error={Boolean(errors?.fullName)}
+              sx={{ width: { xs: '100%', sm: 'unset' } }}
             ></TextField>
             <Error errorMessage={errors.fullName?.message} />
           </Grid>
-          <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
+          <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
             <TextField
               type="date"
               label="Date of Birth"
@@ -152,10 +153,11 @@ function RegistrationForm() {
             </FormControl>
             <Error errorMessage={errors.gender?.message} />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
             <TextField
               label="Father's Name"
               type="text"
+              sx={{ width: { xs: '100%', sm: 'unset' } }}
               {...register('fatherName')}
               error={Boolean(errors.fatherName)}
               required
@@ -183,6 +185,26 @@ function RegistrationForm() {
             </FormControl>
             <Error errorMessage={errors.maritalStatus?.message} />
           </Grid>
+          <Grid xs={12} item>
+            <Typography variant="h6">
+              <strong>Education:</strong>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
+            <TextField
+              label="Education"
+              type="text"
+              sx={{ width: { xs: '100%', sm: 'unset' } }}
+              {...register('education')}
+            ></TextField>
+          </Grid>
+          <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
+            <TextField
+              sx={{ width: { xs: '100%', sm: 'unset' } }}
+              label="School/University Name"
+              {...register('school')}
+            ></TextField>
+          </Grid>
           <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
             <FormGroup>
               <FormControlLabel
@@ -201,24 +223,6 @@ function RegistrationForm() {
               />
             </FormGroup>
           </Grid>
-          <Grid xs={12} item>
-            <Typography variant="h6">
-              <strong>Education:</strong>
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="Education"
-              type="text"
-              {...register('education')}
-            ></TextField>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="School/University Name"
-              {...register('school')}
-            ></TextField>
-          </Grid>
           {isEmployed && (
             <>
               <Grid xs={12} item>
@@ -226,17 +230,29 @@ function RegistrationForm() {
                   <strong>Job Details:</strong>
                 </Typography>
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                sx={{ width: { xs: '100%', sm: 'unset' } }}
+              >
                 <TextField
                   label="Occupation"
                   type="text"
+                  sx={{ width: { xs: '100%', sm: 'unset' } }}
                   {...register('occupation')}
                 ></TextField>
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                sx={{ width: { xs: '100%', sm: 'unset' } }}
+              >
                 <TextField
                   label="Company Name"
                   type="text"
+                  sx={{ width: { xs: '100%', sm: 'unset' } }}
                   {...register('companyName')}
                 ></TextField>
               </Grid>
@@ -299,20 +315,22 @@ function RegistrationForm() {
           <Grid item xs={12}>
             <strong>Permanent Address</strong>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
             <TextField
               label="Locality"
               type="text"
+              sx={{ width: { xs: '100%', sm: 'unset' } }}
               {...register('Paddress.locality')}
               error={Boolean(errors.Paddress?.locality)}
               required
             ></TextField>
             <Error errorMessage={errors.Paddress?.locality?.message} />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
             <TextField
               label="City"
               type="text"
+              sx={{ width: { xs: '100%', sm: 'unset' } }}
               {...register('Paddress.city')}
               error={Boolean(errors.Paddress?.city)}
               required
@@ -340,10 +358,11 @@ function RegistrationForm() {
             </FormControl>
             <Error errorMessage={errors.Paddress?.state?.message} />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
             <TextField
               label="Pin Code"
               type="text"
+              sx={{ width: { xs: '100%', sm: 'unset' } }}
               {...register('Paddress.pincode')}
               error={Boolean(errors.Paddress?.pincode)}
               required
@@ -356,50 +375,80 @@ function RegistrationForm() {
               <Grid item xs={12}>
                 <strong>Current Address</strong>
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                sx={{ width: { xs: '100%', sm: 'unset' } }}
+              >
                 <TextField
                   label="Locality"
                   type="text"
+                  sx={{ width: { xs: '100%', sm: 'unset' } }}
                   {...register('Caddress.locality')}
                   error={Boolean(errors.Caddress?.locality)}
                   required
                 ></TextField>
                 <Error errorMessage={errors.Caddress?.locality?.message} />
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                sx={{ width: { xs: '100%', sm: 'unset' } }}
+              >
                 <TextField
                   label="City"
                   type="text"
+                  sx={{ width: { xs: '100%', sm: 'unset' } }}
                   {...register('Caddress.city')}
                   error={Boolean(errors.Caddress?.city)}
                   required
                 ></TextField>
                 <Error errorMessage={errors.Caddress?.city?.message} />
               </Grid>
-              <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                sx={{ width: { xs: '100%', sm: 'unset' } }}
+              >
                 <TextField
                   label="State"
                   type="text"
+                  sx={{ width: { xs: '100%', sm: 'unset' } }}
                   {...register('Caddress.state')}
                   error={Boolean(errors.Caddress?.state)}
                   required
                 ></TextField>
                 <Error errorMessage={errors.Caddress?.state?.message} />
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                sx={{ width: { xs: '100%', sm: 'unset' } }}
+              >
                 <TextField
                   label="Pin Code"
                   type="text"
+                  sx={{ width: { xs: '100%', sm: 'unset' } }}
                   {...register('Caddress.pincode')}
                   error={Boolean(errors.Caddress?.pincode)}
                   required
                 ></TextField>
                 <Error errorMessage={errors.Caddress?.pincode?.message} />
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                sx={{ width: { xs: '100%', sm: 'unset' } }}
+              >
                 <TextField
                   label="Country"
                   type="text"
+                  sx={{ width: { xs: '100%', sm: 'unset' } }}
                   {...register('Caddress.country')}
                   error={Boolean(errors.Caddress?.country)}
                   required
@@ -413,50 +462,80 @@ function RegistrationForm() {
               <Grid item xs={12}>
                 <strong>Current Address</strong>
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                sx={{ width: { xs: '100%', sm: 'unset' } }}
+              >
                 <TextField
                   label="Locality"
                   type="text"
+                  sx={{ width: { xs: '100%', sm: 'unset' } }}
                   {...register('Caddress.locality')}
                   error={Boolean(errors.Caddress?.locality)}
                   required
                 ></TextField>
                 <Error errorMessage={errors.Caddress?.locality?.message} />
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                sx={{ width: { xs: '100%', sm: 'unset' } }}
+              >
                 <TextField
                   label="City"
                   type="text"
+                  sx={{ width: { xs: '100%', sm: 'unset' } }}
                   {...register('Caddress.city')}
                   error={Boolean(errors.Caddress?.city)}
                   required
                 ></TextField>
                 <Error errorMessage={errors.Caddress?.city?.message} />
               </Grid>
-              <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                sx={{ width: { xs: '100%', sm: 'unset' } }}
+              >
                 <TextField
                   label="State"
                   type="text"
+                  sx={{ width: { xs: '100%', sm: 'unset' } }}
                   {...register('Caddress.state')}
                   error={Boolean(errors.Caddress?.state)}
                   required
                 ></TextField>
                 <Error errorMessage={errors.Caddress?.state?.message} />
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                sx={{ width: { xs: '100%', sm: 'unset' } }}
+              >
                 <TextField
                   label="Pin Code"
                   type="text"
+                  sx={{ width: { xs: '100%', sm: 'unset' } }}
                   {...register('Caddress.pincode')}
                   error={Boolean(errors.Caddress?.pincode)}
                   required
                 ></TextField>
                 <Error errorMessage={errors.Caddress?.pincode?.message} />
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                sx={{ width: { xs: '100%', sm: 'unset' } }}
+              >
                 <TextField
                   label="Country"
                   type="text"
+                  sx={{ width: { xs: '100%', sm: 'unset' } }}
                   {...register('Caddress.country')}
                   error={Boolean(errors.Caddress?.country)}
                   required
@@ -470,20 +549,22 @@ function RegistrationForm() {
               <strong>Contact Details:</strong>
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
             <TextField
               label="Email Id"
               type="email"
+              sx={{ width: { xs: '100%', sm: 'unset' } }}
               {...register('email')}
               error={Boolean(errors.email)}
               required
             ></TextField>
             <Error errorMessage={errors.email?.message} />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
             <TextField
               label="Phone Number"
               type="text"
+              sx={{ width: { xs: '100%', sm: 'unset' } }}
               {...register('phoneNumber')}
               error={Boolean(errors.phoneNumber)}
             ></TextField>
