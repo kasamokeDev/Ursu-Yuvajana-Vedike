@@ -14,10 +14,11 @@ import {
 } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Error from '../formError/Error';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import data from '../../staticData/data';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from '../../Schema/UserSchema';
+import moment from 'moment';
 
 import { useTheme } from '@mui/material/styles';
 import Styles from './style';
@@ -67,6 +68,7 @@ function RegistrationForm() {
     handleSubmit,
     getValues,
     reset,
+    control,
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema),
@@ -100,6 +102,7 @@ function RegistrationForm() {
     },
   });
   const submitForm = (data) => {
+    console.log({ ...data, dob: moment(data.dob).format('YYYY-MM-DD') }); //this data will be sent to server
     setOpenModal(true);
     setLoading(true);
     reset(defaultValues);
@@ -169,37 +172,28 @@ function RegistrationForm() {
           </Grid>
           <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
             <FormControl fullWidth sx={{ width: { xs: '100%', sm: '82%' } }}>
-              <InputLabel id="blood-group-select-label" required>
-                Blood Group
-              </InputLabel>
-              <Select
-                labelId="blood-group-select-label"
-                id="blood-group-select"
-                label="Blood Group"
-                {...register('bloodGroup')}
-                error={Boolean(errors.bloodGroup)}
-              >
-                {data.bloodGroups.map((bg) => (
-                  <MenuItem value={bg} key={bg}>
-                    {bg}
-                  </MenuItem>
-                ))}
-              </Select>
-              {/* <TextField
-              select
-              label="Blood Group"
-              labelId="blood-group-select-label"
-              id="blood-group-select"
-              {...register('bloodGroup')}
-              error={Boolean(errors.bloodGroup)}
-              sx={{ width: { xs: '100%', sm: '82%' } }}
-            >
-              {data.bloodGroups.map((bg) => (
-                <MenuItem value={bg} key={bg}>
-                  {bg}
-                </MenuItem>
-              ))}
-            </TextField> */}
+              <InputLabel id="blood-group-select-label">Blood Group</InputLabel>
+              <Controller
+                control={control}
+                name="bloodGroup"
+                render={({ field }) => {
+                  return (
+                    <Select
+                      {...field}
+                      labelId="blood-group-select-label"
+                      id="blood-group-select"
+                      label="Blood Group"
+                      error={Boolean(errors.bloodGroup)}
+                    >
+                      {data.bloodGroups.map((bg) => (
+                        <MenuItem value={bg} key={bg}>
+                          {bg}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  );
+                }}
+              />
             </FormControl>
             <Error errorMessage={errors.bloodGroup?.message} />
           </Grid>
@@ -208,19 +202,27 @@ function RegistrationForm() {
               <InputLabel id="Gender-select-label" required>
                 Gender
               </InputLabel>
-              <Select
-                labelId="gender-select-label"
-                id="gender-select"
-                label="Gender"
-                {...register('gender')}
-                error={Boolean(errors.gender)}
-              >
-                {data.genders.map((gender) => (
-                  <MenuItem value={gender} key={gender}>
-                    {gender}
-                  </MenuItem>
-                ))}
-              </Select>
+              <Controller
+                control={control}
+                name="gender"
+                render={({ field }) => {
+                  return (
+                    <Select
+                      {...field}
+                      labelId="Gender-select-label"
+                      id="gender-select"
+                      label="Gender"
+                      error={Boolean(errors.gender)}
+                    >
+                      {data.genders.map((gender) => (
+                        <MenuItem value={gender} key={gender}>
+                          {gender}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  );
+                }}
+              />
             </FormControl>
             <Error errorMessage={errors.gender?.message} />
           </Grid>
@@ -240,19 +242,27 @@ function RegistrationForm() {
               <InputLabel id="marital-status-select-label" required>
                 Marital Status
               </InputLabel>
-              <Select
-                labelId="marital-status-select-label"
-                id="marital-status-select"
-                label="Marital Status"
-                {...register('maritalStatus')}
-                error={Boolean(errors.maritalStatus)}
-              >
-                {data.maritalStatus.map((ms) => (
-                  <MenuItem value={ms} key={ms}>
-                    {ms}
-                  </MenuItem>
-                ))}
-              </Select>
+              <Controller
+                control={control}
+                name="maritalStatus"
+                render={({ field }) => {
+                  return (
+                    <Select
+                      {...field}
+                      labelId="marital-status-select-label"
+                      id="marital-status-select"
+                      label="Marital Status"
+                      error={Boolean(errors.maritalStatus)}
+                    >
+                      {data.maritalStatus.map((ms) => (
+                        <MenuItem value={ms} key={ms}>
+                          {ms}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  );
+                }}
+              />
             </FormControl>
             <Error errorMessage={errors.maritalStatus?.message} />
           </Grid>
@@ -413,7 +423,28 @@ function RegistrationForm() {
               <InputLabel id="address-state-select-label" required>
                 State
               </InputLabel>
-              <Select
+              <Controller
+                control={control}
+                name="Paddress.state"
+                render={({ field }) => {
+                  return (
+                    <Select
+                      {...field}
+                      labelId="address-state-select-label"
+                      id="address-state-select"
+                      label="State"
+                      error={Boolean(errors.Paddress?.state)}
+                    >
+                      {data.states.map((state) => (
+                        <MenuItem value={state} key={state}>
+                          {state}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  );
+                }}
+              />
+              {/* <Select
                 labelId="address-state-select-label"
                 id="address-state-select"
                 label="State"
@@ -425,7 +456,7 @@ function RegistrationForm() {
                     {state}
                   </MenuItem>
                 ))}
-              </Select>
+              </Select> */}
             </FormControl>
             <Error errorMessage={errors.Paddress?.state?.message} />
           </Grid>
