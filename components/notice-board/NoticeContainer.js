@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
+import React, { useRef } from 'react';
 import { Container, Grid, Typography, useMediaQuery } from '@mui/material';
 import NoticeFocused from './NoticeFocused';
 import NoticeList from './NoticeList';
@@ -12,6 +12,7 @@ function NoticeContainer() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   const style = Styles(theme);
+  const focusedNoticeRef = useRef(null);
   const [notices, setNotices] = React.useState(noticeData);
   const [activeNotice, setActiveNotice] = React.useState(noticeData[0]);
   const selectActive = (id) => {
@@ -24,6 +25,7 @@ function NoticeContainer() {
       return item;
     });
     setNotices(noticeList);
+    if (isMobile) focusedNoticeRef.current.scrollIntoView();
   };
   return (
     <Container
@@ -49,14 +51,14 @@ function NoticeContainer() {
           />
         </Grid>
       )} */}
-      <Grid container spacing={2}>
+      <Grid container spacing={2} ref={focusedNoticeRef}>
         <Grid item xs={12} md={9}>
           <NoticeFocused notice={activeNotice} />
         </Grid>
         {/* {!isMobile && ( */}
-          <Grid item xs={12} md={3}>
-            <NoticeList noticeData={notices} selectActive={selectActive} />
-          </Grid>
+        <Grid item xs={12} md={3}>
+          <NoticeList noticeData={notices} selectActive={selectActive} />
+        </Grid>
         {/* )} */}
       </Grid>
     </Container>
