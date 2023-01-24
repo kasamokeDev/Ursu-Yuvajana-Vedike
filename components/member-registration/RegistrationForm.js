@@ -34,6 +34,33 @@ function RegistrationForm() {
   const [sameAddress, setSameAddress] = useState(true);
   const [isNRI, setIsNRI] = useState(false);
   const [isEmployed, setIsEmployed] = useState(true);
+  const defaultValues = {
+    fullName: '',
+    dob: '',
+    bloodGroup: '',
+    gender: '',
+    fatherName: '',
+    maritalStatus: '',
+    education: '',
+    school: '',
+    occupation: '',
+    companyName: '',
+    Paddress: {
+      locality: '',
+      city: '',
+      state: '',
+      pincode: '',
+    },
+    Caddress: {
+      locality: '',
+      city: '',
+      state: '',
+      pincode: '',
+      country: '',
+    },
+    email: '',
+    phoneNumber: '',
+  };
   const {
     register,
     formState: { errors },
@@ -43,12 +70,39 @@ function RegistrationForm() {
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema),
+    shouldUnregister: true,
+    defaultValues: {
+      fullName: '',
+      dob: '',
+      bloodGroup: '',
+      gender: '',
+      fatherName: '',
+      maritalStatus: '',
+      education: '',
+      school: '',
+      occupation: '',
+      companyName: '',
+      Paddress: {
+        locality: '',
+        city: '',
+        state: '',
+        pincode: '',
+      },
+      Caddress: {
+        locality: '',
+        city: '',
+        state: '',
+        pincode: '',
+        country: '',
+      },
+      email: '',
+      phoneNumber: '',
+    },
   });
   const submitForm = (data) => {
-    console.log(getValues());
     setOpenModal(true);
     setLoading(true);
-    reset();
+    reset(defaultValues);
   };
   const continuePayment = () => {
     const data = getValues();
@@ -67,6 +121,7 @@ function RegistrationForm() {
       });
     setLoading(false);
   };
+
   return (
     <Container
       maxWidth="md"
@@ -98,7 +153,7 @@ function RegistrationForm() {
               error={Boolean(errors?.fullName)}
               sx={{ width: { xs: '100%', sm: 'unset' } }}
             ></TextField>
-            <Error errorMessage={errors.fullName?.message} />
+            <Error errorMessage={errors?.fullName?.message} />
           </Grid>
           <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
             <TextField
@@ -112,7 +167,7 @@ function RegistrationForm() {
             ></TextField>
             <Error errorMessage={errors.dob?.message} />
           </Grid>
-          <Grid item xs={12} sm={4} sx={{ width: '100% ' }}>
+          <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
             <FormControl fullWidth sx={{ width: { xs: '100%', sm: '82%' } }}>
               <InputLabel id="blood-group-select-label" required>
                 Blood Group
@@ -130,6 +185,21 @@ function RegistrationForm() {
                   </MenuItem>
                 ))}
               </Select>
+              {/* <TextField
+              select
+              label="Blood Group"
+              labelId="blood-group-select-label"
+              id="blood-group-select"
+              {...register('bloodGroup')}
+              error={Boolean(errors.bloodGroup)}
+              sx={{ width: { xs: '100%', sm: '82%' } }}
+            >
+              {data.bloodGroups.map((bg) => (
+                <MenuItem value={bg} key={bg}>
+                  {bg}
+                </MenuItem>
+              ))}
+            </TextField> */}
             </FormControl>
             <Error errorMessage={errors.bloodGroup?.message} />
           </Grid>
