@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 export const schema = yup.object().shape({
-  fullName: yup.string().required('Required Field'),
+  fullName: yup.string().trim().required('Required Field'),
   dob: yup
     .date('Please enter a valid date')
     .typeError('Please provide valid date')
