@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 
-function Card({ img, title, description }) {
+function Card({ img ='', title, description }) {
   return (
     <div
       className="card shadow-lg p-3 mb-5 bg-white rounded"

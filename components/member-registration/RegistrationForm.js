@@ -27,6 +27,8 @@ import { displayRazorpay } from '../../util/Payment';
 
 import MembershipCheckModal from './MembershipCheckModal';
 
+import Title from '../title/Title';
+
 function RegistrationForm() {
   const theme = useTheme();
   const style = Styles(theme);
@@ -137,9 +139,7 @@ function RegistrationForm() {
         mt: 2,
       }}
     >
-      <Typography variant="h4">
-        <strong>Member Registration Form</strong>
-      </Typography>
+      <Title title="Member Registration Form" />
       <form style={{ marginTop: '1rem' }} onSubmit={handleSubmit(submitForm)}>
         <Grid container spacing={2} sx={style.formContainer}>
           <Grid xs={12} item>

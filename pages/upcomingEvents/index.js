@@ -2,6 +2,8 @@ import Head from 'next/head';
 import TopNav from '../../components/top-nav/TopNav';
 import Footer from '../../components/footer/Footer';
 
+import EventsContainer from '../../components/events-container/EventsContainer';
+
 export default function UpcomingEvents() {
   return (
     <>
@@ -10,6 +12,7 @@ export default function UpcomingEvents() {
         <meta property="og:title" content="Urus title" key="title" />
       </Head>
       <TopNav />
+      <EventsContainer title="Upcoming Events"/>
       <Footer />
     </>
   );

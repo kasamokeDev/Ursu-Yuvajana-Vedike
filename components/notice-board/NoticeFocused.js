@@ -4,18 +4,18 @@ import { Box } from '@mui/material';
 function NoticeFocused({ notice }) {
   return (
     <Box>
-      <div class="card text-center">
-        <div class="card-header">{notice.title}</div>
-        <div class="card-body">
-          {/* <h5 class="card-title">Special title treatment</h5> */}
-          <p class="card-text">
+      <div className="card text-center">
+        <div className="card-header">{notice.title}</div>
+        <div className="card-body">
+          {/* <h5 className="card-title">Special title treatment</h5> */}
+          <p className="card-text">
             {notice.body}
           </p>
-          {/* <a href="#" class="btn btn-primary">
+          {/* <a href="#" className="btn btn-primary">
             Go somewhere
           </a> */}
         </div>
-        <div class="card-footer text-muted">Posted on: {notice.postedOn}</div>
+        <div className="card-footer text-muted">Posted on: {notice.postedOn}</div>
       </div>
     </Box>
   );
