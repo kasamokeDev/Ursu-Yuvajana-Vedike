@@ -18,14 +18,14 @@ function FAQ() {
     >
       <Title title="FAQ" />
       <section>
-        <p class="text-center mb-5">
+        <p className="text-center mb-5">
           Find the answers for the most frequently asked questions below
         </p>
 
-        <div class="row">
-          <div class="col-md-6 col-lg-4 mb-4">
-            <h6 class="mb-3 text-primary">
-              <i class="far fa-paper-plane text-primary pe-2"></i> A simple
+        <div className="row">
+          <div className="col-md-6 col-lg-4 mb-4">
+            <h6 className="mb-3 text-primary">
+              <i className="far fa-paper-plane text-primary pe-2"></i> A simple
               question?
             </h6>
             <p>
@@ -38,9 +38,9 @@ function FAQ() {
             </p>
           </div>
 
-          <div class="col-md-6 col-lg-4 mb-4">
-            <h6 class="mb-3 text-primary">
-              <i class="fas fa-pen-alt text-primary pe-2"></i> A question that
+          <div className="col-md-6 col-lg-4 mb-4">
+            <h6 className="mb-3 text-primary">
+              <i className="fas fa-pen-alt text-primary pe-2"></i> A question that
               is longer then the previous one?
             </h6>
             <p>
@@ -52,9 +52,9 @@ function FAQ() {
             </p>
           </div>
 
-          <div class="col-md-6 col-lg-4 mb-4">
-            <h6 class="mb-3 text-primary">
-              <i class="fas fa-user text-primary pe-2"></i> A simple question?
+          <div className="col-md-6 col-lg-4 mb-4">
+            <h6 className="mb-3 text-primary">
+              <i className="fas fa-user text-primary pe-2"></i> A simple question?
             </h6>
             <p>
               Currently, we only offer monthly subscription. You can upgrade or
@@ -63,9 +63,9 @@ function FAQ() {
             </p>
           </div>
 
-          <div class="col-md-6 col-lg-4 mb-4">
-            <h6 class="mb-3 text-primary">
-              <i class="fas fa-rocket text-primary pe-2"></i> A simple question?
+          <div className="col-md-6 col-lg-4 mb-4">
+            <h6 className="mb-3 text-primary">
+              <i className="fas fa-rocket text-primary pe-2"></i> A simple question?
             </h6>
             <p>
               Yes. Go to the billing section of your dashboard and update your
@@ -73,9 +73,9 @@ function FAQ() {
             </p>
           </div>
 
-          <div class="col-md-6 col-lg-4 mb-4">
-            <h6 class="mb-3 text-primary">
-              <i class="fas fa-home text-primary pe-2"></i> A simple question?
+          <div className="col-md-6 col-lg-4 mb-4">
+            <h6 className="mb-3 text-primary">
+              <i className="fas fa-home text-primary pe-2"></i> A simple question?
             </h6>
             <p>
               <strong>
@@ -85,9 +85,9 @@ function FAQ() {
             </p>
           </div>
 
-          <div class="col-md-6 col-lg-4 mb-4">
-            <h6 class="mb-3 text-primary">
-              <i class="fas fa-book-open text-primary pe-2"></i> Another
+          <div className="col-md-6 col-lg-4 mb-4">
+            <h6 className="mb-3 text-primary">
+              <i className="fas fa-book-open text-primary pe-2"></i> Another
               question that is longer than usual
             </h6>
             <p>

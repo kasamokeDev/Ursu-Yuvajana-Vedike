@@ -16,17 +16,17 @@ function UserListContainer({ title, data = [] }) {
       }}
     >
       <Title title={title}></Title>
-      <div class="row">
+      <div className="row">
         {data.length > 0 &&
           data.map((item) => {
             return (
-              <div class="col-xl-4 col-lg-6 mb-4" key={item.id}>
-                <div class="card">
-                  <div class="card-body">
-                    <div class="d-flex align-items-center">
-                      <div class="ms-3">
-                        <p class="fw-bold mb-1">{item.title}</p>
-                        <p class="text-muted mb-0">{item.description}</p>
+              <div className="col-xl-4 col-lg-6 mb-4" key={item.id}>
+                <div className="card">
+                  <div className="card-body">
+                    <div className="d-flex align-items-center">
+                      <div className="ms-3">
+                        <p className="fw-bold mb-1">{item.title}</p>
+                        <p className="text-muted mb-0">{item.description}</p>
                       </div>
                     </div>
                   </div>
@@ -36,24 +36,24 @@ function UserListContainer({ title, data = [] }) {
           })}
       </div>
       {/*
-      <ul class="list-group list-group-light">
+      <ul className="list-group list-group-light">
         
-         <li class="list-group-item d-flex justify-content-between align-items-center">
+         <li className="list-group-item d-flex justify-content-between align-items-center">
           <div>
-            <div class="fw-bold">John Doe</div>
-            <div class="text-muted">john.doe@gmail.com</div>
+            <div className="fw-bold">John Doe</div>
+            <div className="text-muted">john.doe@gmail.com</div>
           </div>
         </li> */}
-      {/* <li class="list-group-item d-flex justify-content-between align-items-center">
+      {/* <li className="list-group-item d-flex justify-content-between align-items-center">
           <div>
-            <div class="fw-bold">Alex Ray</div>
-            <div class="text-muted">alex.ray@gmail.com</div>
+            <div className="fw-bold">Alex Ray</div>
+            <div className="text-muted">alex.ray@gmail.com</div>
           </div>
         </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        <li className="list-group-item d-flex justify-content-between align-items-center">
           <div>
-            <div class="fw-bold">Kate Hunington</div>
-            <div class="text-muted">kate.hunington@gmail.com</div>
+            <div className="fw-bold">Kate Hunington</div>
+            <div className="text-muted">kate.hunington@gmail.com</div>
           </div>
         </li> 
       </ul> */}
