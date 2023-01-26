@@ -17,22 +17,23 @@ function UserListContainer({ title, data = [] }) {
     >
       <Title title={title}></Title>
       <div class="row">
-        {data.map((item) => {
-          return (
-            <div class="col-xl-4 col-lg-6 mb-4" key={item.id}>
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex align-items-center">
-                    <div class="ms-3">
-                      <p class="fw-bold mb-1">{item.title}</p>
-                      <p class="text-muted mb-0">{item.description}</p>
+        {data.length > 0 &&
+          data.map((item) => {
+            return (
+              <div class="col-xl-4 col-lg-6 mb-4" key={item.id}>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center">
+                      <div class="ms-3">
+                        <p class="fw-bold mb-1">{item.title}</p>
+                        <p class="text-muted mb-0">{item.description}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
       {/*
       <ul class="list-group list-group-light">
