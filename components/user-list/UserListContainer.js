@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Typography } from '@mui/material';
 
-function UserListContainer({ title }) {
+function UserListContainer({ title, data = [] }) {
   return (
     <Container
       maxWidth="md"
@@ -14,17 +14,37 @@ function UserListContainer({ title }) {
         mt: 2,
       }}
     >
-      <Typography variant="h4">
+      <Typography variant="h4" style={{textAlign: 'center'}}>
         <strong>{title}</strong>
       </Typography>
+      <div class="row">
+        {data.map((item) => {
+          return (
+            <div class="col-xl-4 col-lg-6 mb-4" key={item.id}>
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center">
+                    <div class="ms-3">
+                      <p class="fw-bold mb-1">{item.title}</p>
+                      <p class="text-muted mb-0">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      {/*
       <ul class="list-group list-group-light">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        
+         <li class="list-group-item d-flex justify-content-between align-items-center">
           <div>
             <div class="fw-bold">John Doe</div>
             <div class="text-muted">john.doe@gmail.com</div>
           </div>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        </li> */}
+      {/* <li class="list-group-item d-flex justify-content-between align-items-center">
           <div>
             <div class="fw-bold">Alex Ray</div>
             <div class="text-muted">alex.ray@gmail.com</div>
@@ -35,8 +55,8 @@ function UserListContainer({ title }) {
             <div class="fw-bold">Kate Hunington</div>
             <div class="text-muted">kate.hunington@gmail.com</div>
           </div>
-        </li>
-      </ul>
+        </li> 
+      </ul> */}
     </Container>
   );
 }

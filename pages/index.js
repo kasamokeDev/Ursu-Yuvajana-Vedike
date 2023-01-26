@@ -8,6 +8,8 @@ import MessageContainer from '../components/message/MessageContainer';
 import EventsContainer from '../components/upcoming-events/EventsContainer';
 import Footer from '../components/footer/Footer';
 
+import data from '../staticData/MockData';
+
 function getServerSideProps() {}
 export default function Home(props) {
   return (
@@ -26,7 +28,7 @@ export default function Home(props) {
         <TopBar />
         <TopNav />
         <HeroCarousel />
-        <CardContainer title="Our Moto"/>
+        <CardContainer title="Our Moto" data={data} />
         <SamplePhotoGallery />
         <MessageContainer />
         <EventsContainer />
