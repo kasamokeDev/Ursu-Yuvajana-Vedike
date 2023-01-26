@@ -2,6 +2,8 @@
 import React from 'react';
 import { Container, Typography } from '@mui/material';
 
+import Title from '../title/Title';
+
 function MainPhotoGallery() {
   return (
     <Container
@@ -15,9 +17,7 @@ function MainPhotoGallery() {
         mt: 2,
       }}
     >
-      <Typography variant="h4">
-        <strong>Photo Gallery</strong>
-      </Typography>
+      <Title title="Photo Gallery" />
       <div class="lightbox">
         <div class="row">
           <div class="col-lg-6">

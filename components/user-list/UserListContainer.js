@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Typography } from '@mui/material';
+import Title from '../title/Title';
 
 function UserListContainer({ title, data = [] }) {
   return (
@@ -14,9 +15,7 @@ function UserListContainer({ title, data = [] }) {
         mt: 2,
       }}
     >
-      <Typography variant="h4" style={{textAlign: 'center'}}>
-        <strong>{title}</strong>
-      </Typography>
+      <Title title={title}></Title>
       <div class="row">
         {data.map((item) => {
           return (

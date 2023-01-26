@@ -8,6 +8,8 @@ import { schema } from '../../Schema/AdminUserSchema';
 import { useTheme } from '@mui/material/styles';
 import Styles from './style';
 
+import Title from '../title/Title';
+
 function AdminLoginContainer() {
   const theme = useTheme();
   const style = Styles(theme);
@@ -36,9 +38,7 @@ function AdminLoginContainer() {
         mt: 2,
       }}
     >
-      <Typography variant="h4">
-        <strong>Admin Login</strong>
-      </Typography>
+      <Title title="Admin Login" />
       <form style={{ marginTop: '1rem' }} onSubmit={handleSubmit(submitForm)}>
         <Grid container spacing={2} sx={style.formContainer}>
           <Grid item xs={12}>

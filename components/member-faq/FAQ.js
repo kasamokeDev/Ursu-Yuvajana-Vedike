@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Typography } from '@mui/material';
 
+import Title from '../title/Title';
+
 function FAQ() {
   return (
     <Container
@@ -14,11 +16,7 @@ function FAQ() {
         mt: 2,
       }}
     >
-      <Typography
-        variant="h4"
-      >
-        <strong>FAQ</strong>
-      </Typography>
+      <Title title="FAQ" />
       <section>
         <p class="text-center mb-5">
           Find the answers for the most frequently asked questions below

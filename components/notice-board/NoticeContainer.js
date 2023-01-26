@@ -8,6 +8,8 @@ import noticeData from '../../staticData/NoticeData';
 import { useTheme } from '@mui/material/styles';
 import Styles from './style';
 
+import Title from '../title/Title';
+
 function NoticeContainer() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
@@ -39,9 +41,7 @@ function NoticeContainer() {
         mt: 2,
       }}
     >
-      <Typography variant="h4">
-        <strong>Notices</strong>
-      </Typography>
+      <Title title="Notices" />
       {/* {isMobile && (
         <Grid item xs={12} md={3}>
           <NoticeList

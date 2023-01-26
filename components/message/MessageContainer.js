@@ -10,22 +10,14 @@ import 'swiper/css';
 import { useTheme } from '@mui/material/styles';
 import Styles from './style';
 
+import Title from '../title/Title';
+
 function MessageContainer() {
   const theme = useTheme();
   const style = Styles(theme);
   return (
     <Container maxWidth="md">
-      <Typography
-        variant="h4"
-        sx={{
-          textDecoration: 'underline',
-          color: 'rgb(69, 69, 181)',
-          fontFamily: 'arial, sans-serif',
-          textAlign: 'center',
-        }}
-      >
-        Messages from our former directors
-      </Typography>
+      <Title title="Messages from our former directors" />
       <Swiper
         spaceBetween={20}
         slidesPerView={1}
