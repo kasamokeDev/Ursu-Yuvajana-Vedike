@@ -5,7 +5,7 @@ import TopBar from '../components/top-bar/TopBar';
 import TopNav from '../components/top-nav/TopNav';
 import SamplePhotoGallery from '../components/photo-gallery/SamplePhotoGallery';
 import MessageContainer from '../components/message/MessageContainer';
-import EventsContainer from '../components/upcoming-events/EventsContainer';
+import EventsContainer from '../components/events-container/EventsContainer';
 import Footer from '../components/footer/Footer';
 
 import data from '../staticData/MockData';
