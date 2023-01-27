@@ -172,7 +172,9 @@ function RegistrationForm() {
           </Grid>
           <Grid item xs={12} sm={4} sx={{ width: { xs: '100%', sm: 'unset' } }}>
             <FormControl fullWidth sx={{ width: { xs: '100%', sm: '82%' } }}>
-              <InputLabel id="blood-group-select-label">Blood Group</InputLabel>
+              <InputLabel id="blood-group-select-label" required>
+                Blood Group
+              </InputLabel>
               <Controller
                 control={control}
                 name="bloodGroup"
