@@ -46,8 +46,13 @@ function TopNavDrawer() {
             >
               <Typography>Membership</Typography>
             </AccordionSummary>
-            <AccordionDetails style={{color: 'red'}}>
-              <Dropdown title="All Members" items={[]} hide={true} url="/allMembers" />
+            <AccordionDetails style={{ color: 'red' }}>
+              <Dropdown
+                title="All Members"
+                items={[]}
+                hide={true}
+                url="/allMembers"
+              />
             </AccordionDetails>
             <AccordionDetails>
               <Dropdown
@@ -58,7 +63,12 @@ function TopNavDrawer() {
               />
             </AccordionDetails>
             <AccordionDetails>
-              <Dropdown title="Life Members" items={[]} hide={true} url="/lifeMembers" />
+              <Dropdown
+                title="Life Members"
+                items={[]}
+                hide={true}
+                url="/lifeMembers"
+              />
             </AccordionDetails>
             <AccordionDetails>
               <Dropdown
@@ -69,7 +79,12 @@ function TopNavDrawer() {
               />
             </AccordionDetails>
             <AccordionDetails>
-              <Dropdown title="Membership FAQ" items={[]} hide={true} url="/membersFAQ" />
+              <Dropdown
+                title="Membership FAQ"
+                items={[]}
+                hide={true}
+                url="/membersFAQ"
+              />
             </AccordionDetails>
           </Accordion>
           <Accordion
@@ -85,7 +100,12 @@ function TopNavDrawer() {
               <Typography>Events & Gallery</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Dropdown title="Past events" items={[]} hide={true} url="/pastEvents" />
+              <Dropdown
+                title="Past events"
+                items={[]}
+                hide={true}
+                url="/pastEvents"
+              />
             </AccordionDetails>
             <AccordionDetails>
               <Dropdown
@@ -96,17 +116,32 @@ function TopNavDrawer() {
               />
             </AccordionDetails>
             <AccordionDetails>
-              <Dropdown title="Photo Gallery" items={[]} hide={true} url="/gallery" />
+              <Dropdown
+                title="Photo Gallery"
+                items={[]}
+                hide={true}
+                url="/gallery"
+              />
             </AccordionDetails>
           </Accordion>
           <Accordion>
             <AccordionDetails>
-              <Dropdown title="Notice Board" items={[]} hide={true} url="/notice" />
+              <Dropdown
+                title="Notice Board"
+                items={[]}
+                hide={true}
+                url="/notice"
+              />
             </AccordionDetails>
           </Accordion>
           <Accordion>
             <AccordionDetails>
-              <Dropdown title="Our Vision" items={[]} hide={true} url="/vision" />
+              <Dropdown
+                title="Our Vision"
+                items={[]}
+                hide={true}
+                url="/vision"
+              />
             </AccordionDetails>
           </Accordion>
           <Accordion>
@@ -121,6 +156,16 @@ function TopNavDrawer() {
                 items={[]}
                 hide={true}
                 url="/adminLogin"
+              />
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionDetails>
+              <Dropdown
+                title="Admin CP"
+                items={[]}
+                hide={true}
+                url="/controlPanel"
               />
             </AccordionDetails>
           </Accordion>

@@ -1,10 +1,16 @@
 import React from 'react';
-import { Container, Typography } from '@mui/material';
+import { Container, Typography, useMediaQuery } from '@mui/material';
 import Title from '../title/Title';
+
+import { useTheme } from '@mui/material/styles';
+import Styles from './style';
 
 import MemberApprovalRow from './MemberApprovalRow';
 
 function MembershipApprovalContainer() {
+  const theme = useTheme();
+  const style = Styles(theme);
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const data = [
     {
       user: 'Niraj Pandey',
@@ -12,14 +18,14 @@ function MembershipApprovalContainer() {
       age: 25,
     },
     {
-      user: 'Niraj Pandey',
+      user: 'John Smith',
       gender: 'M',
-      age: 25,
+      age: 27,
     },
     {
-      user: 'Niraj Pandey',
-      gender: 'M',
-      age: 25,
+      user: 'Alex Nancy',
+      gender: 'F',
+      age: 30,
     },
   ];
   return (
@@ -35,14 +41,32 @@ function MembershipApprovalContainer() {
       }}
     >
       <Title title="Membership Approval Dashboard" />
-      {data.map((item, index) => (
-        <MemberApprovalRow
-          key={index}
-          user={item.user}
-          gender={item.gender}
-          age={item.age}
-        />
-      ))}
+      {isMobile ? (
+        <>
+          {data.map((item, index) => (
+            <MemberApprovalRow
+              key={index}
+              user={item.user}
+              gender={item.gender}
+              age={item.age}
+            />
+          ))}
+        </>
+      ) : (
+        <Container
+          maxWidth="md"
+          sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}
+        >
+          {data.map((item, index) => (
+            <MemberApprovalRow
+              key={index}
+              user={item.user}
+              gender={item.gender}
+              age={item.age}
+            />
+          ))}
+        </Container>
+      )}
     </Container>
   );
 }

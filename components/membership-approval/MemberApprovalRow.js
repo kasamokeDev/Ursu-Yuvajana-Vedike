@@ -43,7 +43,7 @@ function MemberApprovalRow({ user, gender, age }) {
     <>
       <Box sx={style.rowContainer}>
         <Stack
-          direction={{ xs: 'column', sm: 'row' }}
+          direction={{ xs: 'column', sm: 'column' }}
           spacing={{ xs: 1, md: 2 }}
           alignItems="center"
           justifyContent="center"
