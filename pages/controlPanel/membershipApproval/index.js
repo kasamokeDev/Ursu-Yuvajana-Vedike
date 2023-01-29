@@ -4,7 +4,7 @@ import Footer from '../../../components/footer/Footer';
 
 import MembershipApprovalContainer from '../../../components/membership-approval/MembershipApprovalContainer';
 
-export default function Gallery() {
+export default function ControlPanelApproval() {
   return (
     <>
       <Head>
