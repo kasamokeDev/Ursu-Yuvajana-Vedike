@@ -4,7 +4,7 @@ import Footer from '../../components/footer/Footer';
 
 import ControlPanelDashboard from '../../components/controlPanel/ControlPanelDashboard';
 
-export default function Gallery() {
+export default function ControlPanel() {
   return (
     <>
       <Head>
