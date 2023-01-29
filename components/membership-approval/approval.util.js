@@ -1,0 +1,25 @@
+export const modalDataFormatter = (data) => {
+  return {
+    'Name': 'Niraj Pandey',
+    'Phone Number': 8620959804,
+    'Gender': 'Male',
+    'Blood Group': 'B+',
+    'Email': 'nirajpandey034@gmail.com',
+    'Company Name': 'NTT',
+    'Occupation': 'Serviceman',
+    'School': 'GNIT',
+    'Education': ' b tech',
+    'Marital Status': 'Single',
+    "Father's Name": 'HK Pandey',
+    'Date Of Birth': '1997-04-15',
+    'Current Locality': 'white field',
+    'Current City': 'bangalore',
+    'Current State': 'karnataka',
+    'Current Pincode': '867512',
+    'Current Country': 'india',
+    'Permanent Locality': 'athpur',
+    'Permanent City': 'North 24 Parganas',
+    'Permanent Pincode': '743125',
+    'Permanent State': 'West Bengal',
+  };
+};

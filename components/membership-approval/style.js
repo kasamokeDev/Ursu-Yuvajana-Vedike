@@ -30,6 +30,27 @@ const Styles = (theme) => ({
       transform: 'scale(1.1)',
     },
   },
+  modalContent: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '80%',
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1,
+    [theme.breakpoints.down('sm')]: {
+      height: '90%',
+      overflowY: 'auto',
+      width: '90%',
+    },
+  },
 });
 
 export default Styles;
