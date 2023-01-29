@@ -65,6 +65,7 @@ function TopNav() {
                 title="More"
                 items={[
                   "<a href='/adminLogin' style='color: black;font-size: 17px;'>Admin  </a>",
+                  "<a href='/controlPanel' style='color: black;font-size: 17px;'>Admin CP  </a>",
                 ]}
               />
             </Box>
